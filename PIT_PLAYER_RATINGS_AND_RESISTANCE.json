@@ -1,0 +1,3378 @@
+{
+  "1070": {
+    "name": "Jan Briska",
+    "latest_rating": 521.0,
+    "total_matches_2026": 105,
+    "mean_resistance_m_s": 7.73,
+    "std_resistance_m_s": 2.541,
+    "eb_resistance_m_s": 7.705
+  },
+  "1204": {
+    "name": "Miroslav Adamec",
+    "latest_rating": 551.0,
+    "total_matches_2026": 21,
+    "mean_resistance_m_s": 7.139,
+    "std_resistance_m_s": 2.157,
+    "eb_resistance_m_s": 7.271
+  },
+  "873": {
+    "name": "Jan Sucharda",
+    "latest_rating": 745.0,
+    "total_matches_2026": 159,
+    "mean_resistance_m_s": 7.22,
+    "std_resistance_m_s": 2.556,
+    "eb_resistance_m_s": 7.238
+  },
+  "885": {
+    "name": "Denis Hofman",
+    "latest_rating": 843.0,
+    "total_matches_2026": 616,
+    "mean_resistance_m_s": 7.543,
+    "std_resistance_m_s": 2.477,
+    "eb_resistance_m_s": 7.542
+  },
+  "1341": {
+    "name": "Michal Syroha",
+    "latest_rating": 474.0,
+    "total_matches_2026": 511,
+    "mean_resistance_m_s": 7.029,
+    "std_resistance_m_s": 2.592,
+    "eb_resistance_m_s": 7.04
+  },
+  "1217": {
+    "name": "Martin Stefek",
+    "latest_rating": 542.0,
+    "total_matches_2026": 1132,
+    "mean_resistance_m_s": 7.385,
+    "std_resistance_m_s": 2.575,
+    "eb_resistance_m_s": 7.386
+  },
+  "1434": {
+    "name": "Frantisek Briza",
+    "latest_rating": 598.0,
+    "total_matches_2026": 535,
+    "mean_resistance_m_s": 7.315,
+    "std_resistance_m_s": 2.547,
+    "eb_resistance_m_s": 7.318
+  },
+  "1377": {
+    "name": "Mihail Trinta",
+    "latest_rating": 580.0,
+    "total_matches_2026": 558,
+    "mean_resistance_m_s": 7.194,
+    "std_resistance_m_s": 2.552,
+    "eb_resistance_m_s": 7.2
+  },
+  "1603": {
+    "name": "Oleg Vitrovyj",
+    "latest_rating": 625.0,
+    "total_matches_2026": 451,
+    "mean_resistance_m_s": 7.23,
+    "std_resistance_m_s": 2.646,
+    "eb_resistance_m_s": 7.236
+  },
+  "1621": {
+    "name": "Milan Cetner",
+    "latest_rating": 471.0,
+    "total_matches_2026": 536,
+    "mean_resistance_m_s": 7.227,
+    "std_resistance_m_s": 2.572,
+    "eb_resistance_m_s": 7.232
+  },
+  "1128": {
+    "name": "Radim Urbaniec",
+    "latest_rating": 1002.0,
+    "total_matches_2026": 1223,
+    "mean_resistance_m_s": 7.191,
+    "std_resistance_m_s": 2.512,
+    "eb_resistance_m_s": 7.194
+  },
+  "809": {
+    "name": "Michal Regner",
+    "latest_rating": 848.0,
+    "total_matches_2026": 750,
+    "mean_resistance_m_s": 7.445,
+    "std_resistance_m_s": 2.521,
+    "eb_resistance_m_s": 7.446
+  },
+  "886": {
+    "name": "Vaclav Hruska",
+    "latest_rating": 493.0,
+    "total_matches_2026": 675,
+    "mean_resistance_m_s": 7.173,
+    "std_resistance_m_s": 2.536,
+    "eb_resistance_m_s": 7.179
+  },
+  "1607": {
+    "name": "David Horak",
+    "latest_rating": 606.0,
+    "total_matches_2026": 406,
+    "mean_resistance_m_s": 7.459,
+    "std_resistance_m_s": 2.532,
+    "eb_resistance_m_s": 7.459
+  },
+  "715": {
+    "name": "Karel Brozik",
+    "latest_rating": 790.0,
+    "total_matches_2026": 408,
+    "mean_resistance_m_s": 7.562,
+    "std_resistance_m_s": 2.529,
+    "eb_resistance_m_s": 7.559
+  },
+  "1114": {
+    "name": "Michal Vavrecka",
+    "latest_rating": 1035.0,
+    "total_matches_2026": 1154,
+    "mean_resistance_m_s": 7.706,
+    "std_resistance_m_s": 2.423,
+    "eb_resistance_m_s": 7.703
+  },
+  "684": {
+    "name": "Martin Huk",
+    "latest_rating": 1022.0,
+    "total_matches_2026": 972,
+    "mean_resistance_m_s": 7.696,
+    "std_resistance_m_s": 2.504,
+    "eb_resistance_m_s": 7.694
+  },
+  "747": {
+    "name": "Milan Klement",
+    "latest_rating": 861.0,
+    "total_matches_2026": 605,
+    "mean_resistance_m_s": 7.425,
+    "std_resistance_m_s": 2.515,
+    "eb_resistance_m_s": 7.426
+  },
+  "853": {
+    "name": "Patrik Pycha",
+    "latest_rating": 852.0,
+    "total_matches_2026": 425,
+    "mean_resistance_m_s": 7.252,
+    "std_resistance_m_s": 2.471,
+    "eb_resistance_m_s": 7.259
+  },
+  "894": {
+    "name": "Lubor Sulava",
+    "latest_rating": 516.0,
+    "total_matches_2026": 631,
+    "mean_resistance_m_s": 7.356,
+    "std_resistance_m_s": 2.492,
+    "eb_resistance_m_s": 7.359
+  },
+  "825": {
+    "name": "Milan Regner",
+    "latest_rating": 439.0,
+    "total_matches_2026": 368,
+    "mean_resistance_m_s": 7.301,
+    "std_resistance_m_s": 2.558,
+    "eb_resistance_m_s": 7.307
+  },
+  "822": {
+    "name": "Jaroslav Prokupek",
+    "latest_rating": 723.0,
+    "total_matches_2026": 901,
+    "mean_resistance_m_s": 7.252,
+    "std_resistance_m_s": 2.473,
+    "eb_resistance_m_s": 7.255
+  },
+  "1522": {
+    "name": "Tomas Barta",
+    "latest_rating": 748.0,
+    "total_matches_2026": 586,
+    "mean_resistance_m_s": 7.447,
+    "std_resistance_m_s": 2.469,
+    "eb_resistance_m_s": 7.448
+  },
+  "688": {
+    "name": "Erik Mares",
+    "latest_rating": 1026.0,
+    "total_matches_2026": 773,
+    "mean_resistance_m_s": 7.715,
+    "std_resistance_m_s": 2.811,
+    "eb_resistance_m_s": 7.711
+  },
+  "1061": {
+    "name": "Jiri Nesnera",
+    "latest_rating": 1003.0,
+    "total_matches_2026": 92,
+    "mean_resistance_m_s": 7.532,
+    "std_resistance_m_s": 2.476,
+    "eb_resistance_m_s": 7.526
+  },
+  "1285": {
+    "name": "Jan Pleskot",
+    "latest_rating": 482.0,
+    "total_matches_2026": 593,
+    "mean_resistance_m_s": 7.372,
+    "std_resistance_m_s": 2.442,
+    "eb_resistance_m_s": 7.374
+  },
+  "931": {
+    "name": "Martin Tacinec",
+    "latest_rating": 556.0,
+    "total_matches_2026": 172,
+    "mean_resistance_m_s": 7.202,
+    "std_resistance_m_s": 2.506,
+    "eb_resistance_m_s": 7.22
+  },
+  "1692": {
+    "name": "Petr Sebera",
+    "latest_rating": 894.0,
+    "total_matches_2026": 940,
+    "mean_resistance_m_s": 7.364,
+    "std_resistance_m_s": 2.535,
+    "eb_resistance_m_s": 7.366
+  },
+  "1667": {
+    "name": "Vitek Dvorak",
+    "latest_rating": 827.0,
+    "total_matches_2026": 50,
+    "mean_resistance_m_s": 7.41,
+    "std_resistance_m_s": 2.581,
+    "eb_resistance_m_s": 7.424
+  },
+  "925": {
+    "name": "Vladimir Cermak",
+    "latest_rating": 801.0,
+    "total_matches_2026": 739,
+    "mean_resistance_m_s": 7.239,
+    "std_resistance_m_s": 2.508,
+    "eb_resistance_m_s": 7.243
+  },
+  "1143": {
+    "name": "Marek Kostal",
+    "latest_rating": 687.0,
+    "total_matches_2026": 212,
+    "mean_resistance_m_s": 7.357,
+    "std_resistance_m_s": 2.49,
+    "eb_resistance_m_s": 7.364
+  },
+  "1721": {
+    "name": "Alexandr Virag",
+    "latest_rating": 519.0,
+    "total_matches_2026": 219,
+    "mean_resistance_m_s": 7.384,
+    "std_resistance_m_s": 2.504,
+    "eb_resistance_m_s": 7.389
+  },
+  "1734": {
+    "name": "Daniel Priesol",
+    "latest_rating": 523.0,
+    "total_matches_2026": 333,
+    "mean_resistance_m_s": 7.293,
+    "std_resistance_m_s": 2.49,
+    "eb_resistance_m_s": 7.3
+  },
+  "1810": {
+    "name": "Filip Zurek",
+    "latest_rating": 570.0,
+    "total_matches_2026": 558,
+    "mean_resistance_m_s": 7.214,
+    "std_resistance_m_s": 2.542,
+    "eb_resistance_m_s": 7.22
+  },
+  "1757": {
+    "name": "David Heczko",
+    "latest_rating": 710.0,
+    "total_matches_2026": 417,
+    "mean_resistance_m_s": 7.443,
+    "std_resistance_m_s": 2.544,
+    "eb_resistance_m_s": 7.445
+  },
+  "1696": {
+    "name": "Jan Cernik",
+    "latest_rating": 1084.0,
+    "total_matches_2026": 253,
+    "mean_resistance_m_s": 7.32,
+    "std_resistance_m_s": 2.539,
+    "eb_resistance_m_s": 7.328
+  },
+  "683": {
+    "name": "Jan Mecl",
+    "latest_rating": 974.0,
+    "total_matches_2026": 461,
+    "mean_resistance_m_s": 7.744,
+    "std_resistance_m_s": 2.629,
+    "eb_resistance_m_s": 7.737
+  },
+  "1765": {
+    "name": "Milan Jasek",
+    "latest_rating": 540.0,
+    "total_matches_2026": 200,
+    "mean_resistance_m_s": 7.467,
+    "std_resistance_m_s": 2.619,
+    "eb_resistance_m_s": 7.468
+  },
+  "1760": {
+    "name": "David Mikula",
+    "latest_rating": 493.0,
+    "total_matches_2026": 240,
+    "mean_resistance_m_s": 7.396,
+    "std_resistance_m_s": 2.53,
+    "eb_resistance_m_s": 7.4
+  },
+  "1593": {
+    "name": "Miroslav Tuma",
+    "latest_rating": 494.0,
+    "total_matches_2026": 306,
+    "mean_resistance_m_s": 7.311,
+    "std_resistance_m_s": 2.528,
+    "eb_resistance_m_s": 7.318
+  },
+  "828": {
+    "name": "Jiri Svec",
+    "latest_rating": 415.0,
+    "total_matches_2026": 482,
+    "mean_resistance_m_s": 7.479,
+    "std_resistance_m_s": 2.495,
+    "eb_resistance_m_s": 7.479
+  },
+  "1688": {
+    "name": "Karel Kapras",
+    "latest_rating": 790.0,
+    "total_matches_2026": 199,
+    "mean_resistance_m_s": 7.196,
+    "std_resistance_m_s": 2.556,
+    "eb_resistance_m_s": 7.212
+  },
+  "866": {
+    "name": "Vaclav Dolezal",
+    "latest_rating": 558.0,
+    "total_matches_2026": 568,
+    "mean_resistance_m_s": 7.379,
+    "std_resistance_m_s": 2.564,
+    "eb_resistance_m_s": 7.381
+  },
+  "824": {
+    "name": "Milan Kolar",
+    "latest_rating": 650.0,
+    "total_matches_2026": 614,
+    "mean_resistance_m_s": 7.166,
+    "std_resistance_m_s": 2.564,
+    "eb_resistance_m_s": 7.172
+  },
+  "1546": {
+    "name": "Petr Osvald",
+    "latest_rating": 671.0,
+    "total_matches_2026": 232,
+    "mean_resistance_m_s": 7.39,
+    "std_resistance_m_s": 2.559,
+    "eb_resistance_m_s": 7.394
+  },
+  "1366": {
+    "name": "Radomir Vidlicka",
+    "latest_rating": 592.0,
+    "total_matches_2026": 136,
+    "mean_resistance_m_s": 7.467,
+    "std_resistance_m_s": 2.558,
+    "eb_resistance_m_s": 7.468
+  },
+  "1407": {
+    "name": "Milan Longin",
+    "latest_rating": 534.0,
+    "total_matches_2026": 116,
+    "mean_resistance_m_s": 7.257,
+    "std_resistance_m_s": 2.583,
+    "eb_resistance_m_s": 7.278
+  },
+  "714": {
+    "name": "Jiri Louda",
+    "latest_rating": 888.0,
+    "total_matches_2026": 818,
+    "mean_resistance_m_s": 7.419,
+    "std_resistance_m_s": 2.538,
+    "eb_resistance_m_s": 7.42
+  },
+  "937": {
+    "name": "Pavel Sprynar",
+    "latest_rating": 293.0,
+    "total_matches_2026": 181,
+    "mean_resistance_m_s": 7.208,
+    "std_resistance_m_s": 2.514,
+    "eb_resistance_m_s": 7.226
+  },
+  "1499": {
+    "name": "Milan Chalupnicek",
+    "latest_rating": 518.0,
+    "total_matches_2026": 403,
+    "mean_resistance_m_s": 7.404,
+    "std_resistance_m_s": 2.506,
+    "eb_resistance_m_s": 7.406
+  },
+  "681": {
+    "name": "Marek Fabini",
+    "latest_rating": 1011.0,
+    "total_matches_2026": 80,
+    "mean_resistance_m_s": 7.408,
+    "std_resistance_m_s": 2.591,
+    "eb_resistance_m_s": 7.418
+  },
+  "826": {
+    "name": "Ales Barton",
+    "latest_rating": 976.0,
+    "total_matches_2026": 302,
+    "mean_resistance_m_s": 7.439,
+    "std_resistance_m_s": 2.602,
+    "eb_resistance_m_s": 7.441
+  },
+  "1020": {
+    "name": "Martin Biolek",
+    "latest_rating": 1052.0,
+    "total_matches_2026": 442,
+    "mean_resistance_m_s": 7.343,
+    "std_resistance_m_s": 2.484,
+    "eb_resistance_m_s": 7.347
+  },
+  "1004": {
+    "name": "Ondrej Paril",
+    "latest_rating": 1058.0,
+    "total_matches_2026": 810,
+    "mean_resistance_m_s": 7.356,
+    "std_resistance_m_s": 2.588,
+    "eb_resistance_m_s": 7.358
+  },
+  "1415": {
+    "name": "Jiri Zuzanek",
+    "latest_rating": 824.0,
+    "total_matches_2026": 806,
+    "mean_resistance_m_s": 7.348,
+    "std_resistance_m_s": 2.571,
+    "eb_resistance_m_s": 7.35
+  },
+  "1653": {
+    "name": "Petr Bruzek",
+    "latest_rating": 498.0,
+    "total_matches_2026": 261,
+    "mean_resistance_m_s": 7.148,
+    "std_resistance_m_s": 2.511,
+    "eb_resistance_m_s": 7.164
+  },
+  "942": {
+    "name": "Jaroslav Strnad",
+    "latest_rating": 554.0,
+    "total_matches_2026": 755,
+    "mean_resistance_m_s": 7.323,
+    "std_resistance_m_s": 2.585,
+    "eb_resistance_m_s": 7.325
+  },
+  "702": {
+    "name": "Lukas Boruvka",
+    "latest_rating": 1127.0,
+    "total_matches_2026": 116,
+    "mean_resistance_m_s": 6.993,
+    "std_resistance_m_s": 2.578,
+    "eb_resistance_m_s": 7.042
+  },
+  "699": {
+    "name": "Josef Medek",
+    "latest_rating": 1098.0,
+    "total_matches_2026": 347,
+    "mean_resistance_m_s": 7.307,
+    "std_resistance_m_s": 2.635,
+    "eb_resistance_m_s": 7.313
+  },
+  "1702": {
+    "name": "Jan Szotkowski",
+    "latest_rating": 1059.0,
+    "total_matches_2026": 603,
+    "mean_resistance_m_s": 7.584,
+    "std_resistance_m_s": 2.538,
+    "eb_resistance_m_s": 7.582
+  },
+  "996": {
+    "name": "Tadeas Zika",
+    "latest_rating": 1026.0,
+    "total_matches_2026": 1332,
+    "mean_resistance_m_s": 7.613,
+    "std_resistance_m_s": 2.526,
+    "eb_resistance_m_s": 7.611
+  },
+  "1625": {
+    "name": "Karel Bartak",
+    "latest_rating": 494.0,
+    "total_matches_2026": 62,
+    "mean_resistance_m_s": 6.663,
+    "std_resistance_m_s": 2.679,
+    "eb_resistance_m_s": 6.802
+  },
+  "1382": {
+    "name": "Jaroslav Novotny",
+    "latest_rating": 565.0,
+    "total_matches_2026": 102,
+    "mean_resistance_m_s": 7.099,
+    "std_resistance_m_s": 2.542,
+    "eb_resistance_m_s": 7.14
+  },
+  "694": {
+    "name": "Jan Zajicek",
+    "latest_rating": 1074.0,
+    "total_matches_2026": 413,
+    "mean_resistance_m_s": 7.305,
+    "std_resistance_m_s": 2.547,
+    "eb_resistance_m_s": 7.31
+  },
+  "1611": {
+    "name": "Vaclav Nohejl",
+    "latest_rating": 946.0,
+    "total_matches_2026": 244,
+    "mean_resistance_m_s": 7.444,
+    "std_resistance_m_s": 2.65,
+    "eb_resistance_m_s": 7.446
+  },
+  "1527": {
+    "name": "Vratislav Petracek",
+    "latest_rating": 976.0,
+    "total_matches_2026": 504,
+    "mean_resistance_m_s": 7.511,
+    "std_resistance_m_s": 2.459,
+    "eb_resistance_m_s": 7.51
+  },
+  "1571": {
+    "name": "Dan Volhejn",
+    "latest_rating": 992.0,
+    "total_matches_2026": 526,
+    "mean_resistance_m_s": 7.595,
+    "std_resistance_m_s": 2.513,
+    "eb_resistance_m_s": 7.592
+  },
+  "1629": {
+    "name": "Matej Volf",
+    "latest_rating": 820.0,
+    "total_matches_2026": 288,
+    "mean_resistance_m_s": 7.406,
+    "std_resistance_m_s": 2.552,
+    "eb_resistance_m_s": 7.409
+  },
+  "1260": {
+    "name": "Pavel Fojt",
+    "latest_rating": 706.0,
+    "total_matches_2026": 465,
+    "mean_resistance_m_s": 7.265,
+    "std_resistance_m_s": 2.443,
+    "eb_resistance_m_s": 7.271
+  },
+  "1162": {
+    "name": "Roman Hudeczek",
+    "latest_rating": 922.0,
+    "total_matches_2026": 367,
+    "mean_resistance_m_s": 7.497,
+    "std_resistance_m_s": 2.477,
+    "eb_resistance_m_s": 7.496
+  },
+  "1294": {
+    "name": "Zbynek Pagac",
+    "latest_rating": 832.0,
+    "total_matches_2026": 671,
+    "mean_resistance_m_s": 7.185,
+    "std_resistance_m_s": 2.473,
+    "eb_resistance_m_s": 7.19
+  },
+  "834": {
+    "name": "Tomas Andrle",
+    "latest_rating": 599.0,
+    "total_matches_2026": 324,
+    "mean_resistance_m_s": 7.346,
+    "std_resistance_m_s": 2.55,
+    "eb_resistance_m_s": 7.351
+  },
+  "1582": {
+    "name": "Viktor Vejvoda",
+    "latest_rating": 869.0,
+    "total_matches_2026": 740,
+    "mean_resistance_m_s": 7.612,
+    "std_resistance_m_s": 2.627,
+    "eb_resistance_m_s": 7.61
+  },
+  "1709": {
+    "name": "Michal Chalupa",
+    "latest_rating": 880.0,
+    "total_matches_2026": 587,
+    "mean_resistance_m_s": 7.569,
+    "std_resistance_m_s": 2.482,
+    "eb_resistance_m_s": 7.567
+  },
+  "1129": {
+    "name": "Martin Pavliska",
+    "latest_rating": 797.0,
+    "total_matches_2026": 170,
+    "mean_resistance_m_s": 7.37,
+    "std_resistance_m_s": 2.62,
+    "eb_resistance_m_s": 7.377
+  },
+  "1813": {
+    "name": "Pavel Drazan",
+    "latest_rating": 430.0,
+    "total_matches_2026": 148,
+    "mean_resistance_m_s": 7.114,
+    "std_resistance_m_s": 2.437,
+    "eb_resistance_m_s": 7.142
+  },
+  "865": {
+    "name": "Vladimir Postelt",
+    "latest_rating": 694.0,
+    "total_matches_2026": 529,
+    "mean_resistance_m_s": 7.269,
+    "std_resistance_m_s": 2.475,
+    "eb_resistance_m_s": 7.274
+  },
+  "897": {
+    "name": "Tibor Kolenic",
+    "latest_rating": 618.0,
+    "total_matches_2026": 288,
+    "mean_resistance_m_s": 7.311,
+    "std_resistance_m_s": 2.43,
+    "eb_resistance_m_s": 7.318
+  },
+  "1685": {
+    "name": "Radek Golis",
+    "latest_rating": 398.0,
+    "total_matches_2026": 32,
+    "mean_resistance_m_s": 6.784,
+    "std_resistance_m_s": 2.458,
+    "eb_resistance_m_s": 6.983
+  },
+  "1015": {
+    "name": "Michal Vedmoch",
+    "latest_rating": 746.0,
+    "total_matches_2026": 986,
+    "mean_resistance_m_s": 7.284,
+    "std_resistance_m_s": 2.558,
+    "eb_resistance_m_s": 7.286
+  },
+  "1078": {
+    "name": "Kyryl Darin",
+    "latest_rating": 724.0,
+    "total_matches_2026": 1140,
+    "mean_resistance_m_s": 7.322,
+    "std_resistance_m_s": 2.51,
+    "eb_resistance_m_s": 7.324
+  },
+  "812": {
+    "name": "Rostislav Hasmanda",
+    "latest_rating": 547.0,
+    "total_matches_2026": 554,
+    "mean_resistance_m_s": 7.272,
+    "std_resistance_m_s": 2.467,
+    "eb_resistance_m_s": 7.277
+  },
+  "879": {
+    "name": "Jiri Ruzicka",
+    "latest_rating": 1013.0,
+    "total_matches_2026": 1044,
+    "mean_resistance_m_s": 7.632,
+    "std_resistance_m_s": 2.513,
+    "eb_resistance_m_s": 7.63
+  },
+  "837": {
+    "name": "Radim Pavelka",
+    "latest_rating": 750.0,
+    "total_matches_2026": 563,
+    "mean_resistance_m_s": 7.14,
+    "std_resistance_m_s": 2.473,
+    "eb_resistance_m_s": 7.147
+  },
+  "764": {
+    "name": "Matous Klimenta",
+    "latest_rating": 946.0,
+    "total_matches_2026": 152,
+    "mean_resistance_m_s": 7.436,
+    "std_resistance_m_s": 2.466,
+    "eb_resistance_m_s": 7.44
+  },
+  "1295": {
+    "name": "Vojtech Koubek",
+    "latest_rating": 1011.0,
+    "total_matches_2026": 264,
+    "mean_resistance_m_s": 7.343,
+    "std_resistance_m_s": 2.449,
+    "eb_resistance_m_s": 7.349
+  },
+  "1597": {
+    "name": "Jiri Grohsgott",
+    "latest_rating": 394.0,
+    "total_matches_2026": 957,
+    "mean_resistance_m_s": 7.057,
+    "std_resistance_m_s": 2.475,
+    "eb_resistance_m_s": 7.062
+  },
+  "1321": {
+    "name": "Alexander Hejduk",
+    "latest_rating": 387.0,
+    "total_matches_2026": 347,
+    "mean_resistance_m_s": 7.181,
+    "std_resistance_m_s": 2.47,
+    "eb_resistance_m_s": 7.192
+  },
+  "1121": {
+    "name": "Matyas Navedla",
+    "latest_rating": 1023.0,
+    "total_matches_2026": 627,
+    "mean_resistance_m_s": 7.338,
+    "std_resistance_m_s": 2.502,
+    "eb_resistance_m_s": 7.341
+  },
+  "1707": {
+    "name": "Michal Hrabec",
+    "latest_rating": 1008.0,
+    "total_matches_2026": 193,
+    "mean_resistance_m_s": 7.157,
+    "std_resistance_m_s": 2.586,
+    "eb_resistance_m_s": 7.177
+  },
+  "903": {
+    "name": "Daniel Kouble",
+    "latest_rating": 735.0,
+    "total_matches_2026": 164,
+    "mean_resistance_m_s": 7.53,
+    "std_resistance_m_s": 2.59,
+    "eb_resistance_m_s": 7.527
+  },
+  "830": {
+    "name": "Jakub Hradecky",
+    "latest_rating": 845.0,
+    "total_matches_2026": 297,
+    "mean_resistance_m_s": 7.439,
+    "std_resistance_m_s": 2.58,
+    "eb_resistance_m_s": 7.44
+  },
+  "1803": {
+    "name": "Matej Grundel",
+    "latest_rating": 1007.0,
+    "total_matches_2026": 287,
+    "mean_resistance_m_s": 7.385,
+    "std_resistance_m_s": 2.423,
+    "eb_resistance_m_s": 7.389
+  },
+  "1706": {
+    "name": "Roman Opralka",
+    "latest_rating": 866.0,
+    "total_matches_2026": 340,
+    "mean_resistance_m_s": 7.172,
+    "std_resistance_m_s": 2.448,
+    "eb_resistance_m_s": 7.183
+  },
+  "1749": {
+    "name": "Lubos Forman",
+    "latest_rating": 376.0,
+    "total_matches_2026": 172,
+    "mean_resistance_m_s": 7.052,
+    "std_resistance_m_s": 2.63,
+    "eb_resistance_m_s": 7.081
+  },
+  "1635": {
+    "name": "Julius Didi",
+    "latest_rating": 597.0,
+    "total_matches_2026": 620,
+    "mean_resistance_m_s": 7.282,
+    "std_resistance_m_s": 2.532,
+    "eb_resistance_m_s": 7.286
+  },
+  "1301": {
+    "name": "Vladislav Hampejs",
+    "latest_rating": 730.0,
+    "total_matches_2026": 36,
+    "mean_resistance_m_s": 6.944,
+    "std_resistance_m_s": 2.491,
+    "eb_resistance_m_s": 7.082
+  },
+  "1677": {
+    "name": "Jaroslav Bares",
+    "latest_rating": 745.0,
+    "total_matches_2026": 69,
+    "mean_resistance_m_s": 7.452,
+    "std_resistance_m_s": 2.649,
+    "eb_resistance_m_s": 7.456
+  },
+  "1752": {
+    "name": "Vojtech Svechota",
+    "latest_rating": 971.0,
+    "total_matches_2026": 267,
+    "mean_resistance_m_s": 7.298,
+    "std_resistance_m_s": 2.65,
+    "eb_resistance_m_s": 7.306
+  },
+  "930": {
+    "name": "Michal Zahradka",
+    "latest_rating": 1012.0,
+    "total_matches_2026": 621,
+    "mean_resistance_m_s": 7.527,
+    "std_resistance_m_s": 2.54,
+    "eb_resistance_m_s": 7.526
+  },
+  "896": {
+    "name": "Michal Jezek",
+    "latest_rating": 987.0,
+    "total_matches_2026": 221,
+    "mean_resistance_m_s": 7.34,
+    "std_resistance_m_s": 2.443,
+    "eb_resistance_m_s": 7.347
+  },
+  "1714": {
+    "name": "Samuel Byrtus",
+    "latest_rating": 710.0,
+    "total_matches_2026": 437,
+    "mean_resistance_m_s": 7.519,
+    "std_resistance_m_s": 2.376,
+    "eb_resistance_m_s": 7.518
+  },
+  "1735": {
+    "name": "Michal Hudecek",
+    "latest_rating": 639.0,
+    "total_matches_2026": 100,
+    "mean_resistance_m_s": 7.332,
+    "std_resistance_m_s": 2.591,
+    "eb_resistance_m_s": 7.347
+  },
+  "1531": {
+    "name": "Adam Brazda",
+    "latest_rating": 884.0,
+    "total_matches_2026": 275,
+    "mean_resistance_m_s": 7.267,
+    "std_resistance_m_s": 2.625,
+    "eb_resistance_m_s": 7.276
+  },
+  "1171": {
+    "name": "Jiri Stach",
+    "latest_rating": 488.0,
+    "total_matches_2026": 248,
+    "mean_resistance_m_s": 7.362,
+    "std_resistance_m_s": 2.461,
+    "eb_resistance_m_s": 7.367
+  },
+  "901": {
+    "name": "Ludek Madle",
+    "latest_rating": 394.0,
+    "total_matches_2026": 367,
+    "mean_resistance_m_s": 7.366,
+    "std_resistance_m_s": 2.59,
+    "eb_resistance_m_s": 7.37
+  },
+  "1668": {
+    "name": "Oleksandr Kolisnyk",
+    "latest_rating": 991.0,
+    "total_matches_2026": 587,
+    "mean_resistance_m_s": 7.603,
+    "std_resistance_m_s": 2.473,
+    "eb_resistance_m_s": 7.601
+  },
+  "878": {
+    "name": "Lukas Zeman",
+    "latest_rating": 1051.0,
+    "total_matches_2026": 324,
+    "mean_resistance_m_s": 7.716,
+    "std_resistance_m_s": 2.492,
+    "eb_resistance_m_s": 7.707
+  },
+  "1666": {
+    "name": "Tomas Paldus",
+    "latest_rating": 595.0,
+    "total_matches_2026": 24,
+    "mean_resistance_m_s": 7.184,
+    "std_resistance_m_s": 2.409,
+    "eb_resistance_m_s": 7.281
+  },
+  "843": {
+    "name": "Tomas Janata",
+    "latest_rating": 779.0,
+    "total_matches_2026": 515,
+    "mean_resistance_m_s": 7.354,
+    "std_resistance_m_s": 2.479,
+    "eb_resistance_m_s": 7.357
+  },
+  "1823": {
+    "name": "Zdenek Babinec",
+    "latest_rating": 908.0,
+    "total_matches_2026": 315,
+    "mean_resistance_m_s": 7.279,
+    "std_resistance_m_s": 2.444,
+    "eb_resistance_m_s": 7.286
+  },
+  "1014": {
+    "name": "Jakub Levicky",
+    "latest_rating": 693.0,
+    "total_matches_2026": 595,
+    "mean_resistance_m_s": 7.28,
+    "std_resistance_m_s": 2.507,
+    "eb_resistance_m_s": 7.284
+  },
+  "1093": {
+    "name": "Sebastian Kasnik",
+    "latest_rating": 869.0,
+    "total_matches_2026": 765,
+    "mean_resistance_m_s": 7.405,
+    "std_resistance_m_s": 2.486,
+    "eb_resistance_m_s": 7.406
+  },
+  "1632": {
+    "name": "Martin Jonas",
+    "latest_rating": 552.0,
+    "total_matches_2026": 8,
+    "mean_resistance_m_s": 6.824,
+    "std_resistance_m_s": 2.345,
+    "eb_resistance_m_s": 7.214
+  },
+  "1433": {
+    "name": "Martin Jaksa",
+    "latest_rating": 563.0,
+    "total_matches_2026": 64,
+    "mean_resistance_m_s": 7.588,
+    "std_resistance_m_s": 2.712,
+    "eb_resistance_m_s": 7.57
+  },
+  "1704": {
+    "name": "Matej Becak",
+    "latest_rating": 698.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.969,
+    "std_resistance_m_s": 2.61,
+    "eb_resistance_m_s": 7.879
+  },
+  "1411": {
+    "name": "Simon Kadavy",
+    "latest_rating": 840.0,
+    "total_matches_2026": 349,
+    "mean_resistance_m_s": 7.602,
+    "std_resistance_m_s": 2.416,
+    "eb_resistance_m_s": 7.598
+  },
+  "1588": {
+    "name": "Stanislav Olejarcik",
+    "latest_rating": 642.0,
+    "total_matches_2026": 51,
+    "mean_resistance_m_s": 7.34,
+    "std_resistance_m_s": 2.793,
+    "eb_resistance_m_s": 7.367
+  },
+  "1679": {
+    "name": "Jiri Dedek",
+    "latest_rating": 673.0,
+    "total_matches_2026": 709,
+    "mean_resistance_m_s": 6.996,
+    "std_resistance_m_s": 2.577,
+    "eb_resistance_m_s": 7.005
+  },
+  "1806": {
+    "name": "Petr Danko",
+    "latest_rating": 704.0,
+    "total_matches_2026": 187,
+    "mean_resistance_m_s": 7.393,
+    "std_resistance_m_s": 2.39,
+    "eb_resistance_m_s": 7.399
+  },
+  "1544": {
+    "name": "Ivan Jemelka",
+    "latest_rating": 608.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 6.638,
+    "std_resistance_m_s": 2.633,
+    "eb_resistance_m_s": 6.798
+  },
+  "1820": {
+    "name": "Jan Cervenka",
+    "latest_rating": 751.0,
+    "total_matches_2026": 12,
+    "mean_resistance_m_s": 7.283,
+    "std_resistance_m_s": 2.143,
+    "eb_resistance_m_s": 7.385
+  },
+  "1428": {
+    "name": "Lubos Krticka",
+    "latest_rating": 751.0,
+    "total_matches_2026": 124,
+    "mean_resistance_m_s": 7.225,
+    "std_resistance_m_s": 2.499,
+    "eb_resistance_m_s": 7.249
+  },
+  "1547": {
+    "name": "Dmitro Parhomenko",
+    "latest_rating": 649.0,
+    "total_matches_2026": 923,
+    "mean_resistance_m_s": 7.235,
+    "std_resistance_m_s": 2.497,
+    "eb_resistance_m_s": 7.238
+  },
+  "1393": {
+    "name": "Milan Fisera",
+    "latest_rating": 594.0,
+    "total_matches_2026": 189,
+    "mean_resistance_m_s": 7.217,
+    "std_resistance_m_s": 2.593,
+    "eb_resistance_m_s": 7.233
+  },
+  "1251": {
+    "name": "Leos Havrda",
+    "latest_rating": 440.0,
+    "total_matches_2026": 326,
+    "mean_resistance_m_s": 7.207,
+    "std_resistance_m_s": 2.562,
+    "eb_resistance_m_s": 7.217
+  },
+  "1561": {
+    "name": "Tomas Franek",
+    "latest_rating": 897.0,
+    "total_matches_2026": 160,
+    "mean_resistance_m_s": 7.423,
+    "std_resistance_m_s": 2.363,
+    "eb_resistance_m_s": 7.427
+  },
+  "952": {
+    "name": "Marek Placek",
+    "latest_rating": 628.0,
+    "total_matches_2026": 298,
+    "mean_resistance_m_s": 7.508,
+    "std_resistance_m_s": 2.448,
+    "eb_resistance_m_s": 7.507
+  },
+  "1751": {
+    "name": "Jiri Havel",
+    "latest_rating": 598.0,
+    "total_matches_2026": 299,
+    "mean_resistance_m_s": 7.237,
+    "std_resistance_m_s": 2.547,
+    "eb_resistance_m_s": 7.246
+  },
+  "1673": {
+    "name": "Ba Hoang Tai Nguyen",
+    "latest_rating": 740.0,
+    "total_matches_2026": 514,
+    "mean_resistance_m_s": 7.493,
+    "std_resistance_m_s": 2.449,
+    "eb_resistance_m_s": 7.493
+  },
+  "1324": {
+    "name": "Ondrej Svacha",
+    "latest_rating": 940.0,
+    "total_matches_2026": 558,
+    "mean_resistance_m_s": 7.403,
+    "std_resistance_m_s": 2.543,
+    "eb_resistance_m_s": 7.405
+  },
+  "1681": {
+    "name": "Adam Svoboda",
+    "latest_rating": 649.0,
+    "total_matches_2026": 319,
+    "mean_resistance_m_s": 7.228,
+    "std_resistance_m_s": 2.566,
+    "eb_resistance_m_s": 7.237
+  },
+  "707": {
+    "name": "Petr Bradac",
+    "latest_rating": 999.0,
+    "total_matches_2026": 160,
+    "mean_resistance_m_s": 7.319,
+    "std_resistance_m_s": 2.608,
+    "eb_resistance_m_s": 7.331
+  },
+  "1800": {
+    "name": "Michal Koral",
+    "latest_rating": 647.0,
+    "total_matches_2026": 220,
+    "mean_resistance_m_s": 7.309,
+    "std_resistance_m_s": 2.475,
+    "eb_resistance_m_s": 7.318
+  },
+  "864": {
+    "name": "Tomas Postelt",
+    "latest_rating": 1023.0,
+    "total_matches_2026": 465,
+    "mean_resistance_m_s": 7.623,
+    "std_resistance_m_s": 2.455,
+    "eb_resistance_m_s": 7.619
+  },
+  "1012": {
+    "name": "Zbynek Zientek",
+    "latest_rating": 486.0,
+    "total_matches_2026": 414,
+    "mean_resistance_m_s": 7.308,
+    "std_resistance_m_s": 2.463,
+    "eb_resistance_m_s": 7.313
+  },
+  "951": {
+    "name": "Miroslav Barta",
+    "latest_rating": 494.0,
+    "total_matches_2026": 448,
+    "mean_resistance_m_s": 7.098,
+    "std_resistance_m_s": 2.563,
+    "eb_resistance_m_s": 7.108
+  },
+  "758": {
+    "name": "Petr Macela",
+    "latest_rating": 1110.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.015,
+    "std_resistance_m_s": 2.365,
+    "eb_resistance_m_s": 7.106
+  },
+  "1796": {
+    "name": "Libor Prikasky",
+    "latest_rating": 1000.0,
+    "total_matches_2026": 420,
+    "mean_resistance_m_s": 7.252,
+    "std_resistance_m_s": 2.527,
+    "eb_resistance_m_s": 7.258
+  },
+  "1203": {
+    "name": "Michal Wollny",
+    "latest_rating": 907.0,
+    "total_matches_2026": 131,
+    "mean_resistance_m_s": 7.144,
+    "std_resistance_m_s": 2.399,
+    "eb_resistance_m_s": 7.172
+  },
+  "1124": {
+    "name": "Milan Vrabec",
+    "latest_rating": 377.0,
+    "total_matches_2026": 296,
+    "mean_resistance_m_s": 6.947,
+    "std_resistance_m_s": 2.571,
+    "eb_resistance_m_s": 6.968
+  },
+  "940": {
+    "name": "Milan Smesny",
+    "latest_rating": 393.0,
+    "total_matches_2026": 238,
+    "mean_resistance_m_s": 7.148,
+    "std_resistance_m_s": 2.585,
+    "eb_resistance_m_s": 7.164
+  },
+  "711": {
+    "name": "Radek Rose",
+    "latest_rating": 953.0,
+    "total_matches_2026": 222,
+    "mean_resistance_m_s": 7.312,
+    "std_resistance_m_s": 2.522,
+    "eb_resistance_m_s": 7.321
+  },
+  "1830": {
+    "name": "Petr Jancicka",
+    "latest_rating": 514.0,
+    "total_matches_2026": 12,
+    "mean_resistance_m_s": 6.596,
+    "std_resistance_m_s": 2.285,
+    "eb_resistance_m_s": 7.052
+  },
+  "1071": {
+    "name": "Lukas Tonar",
+    "latest_rating": 838.0,
+    "total_matches_2026": 159,
+    "mean_resistance_m_s": 7.081,
+    "std_resistance_m_s": 2.55,
+    "eb_resistance_m_s": 7.11
+  },
+  "1557": {
+    "name": "Miroslav Vaclavik",
+    "latest_rating": 421.0,
+    "total_matches_2026": 178,
+    "mean_resistance_m_s": 7.231,
+    "std_resistance_m_s": 2.577,
+    "eb_resistance_m_s": 7.248
+  },
+  "1087": {
+    "name": "Radomir Vavrecka",
+    "latest_rating": 710.0,
+    "total_matches_2026": 306,
+    "mean_resistance_m_s": 7.349,
+    "std_resistance_m_s": 2.439,
+    "eb_resistance_m_s": 7.354
+  },
+  "1771": {
+    "name": "Vaclav Zidek",
+    "latest_rating": 701.0,
+    "total_matches_2026": 263,
+    "mean_resistance_m_s": 7.411,
+    "std_resistance_m_s": 2.596,
+    "eb_resistance_m_s": 7.414
+  },
+  "1821": {
+    "name": "Eduard Bernatskyi",
+    "latest_rating": 820.0,
+    "total_matches_2026": 22,
+    "mean_resistance_m_s": 7.541,
+    "std_resistance_m_s": 2.905,
+    "eb_resistance_m_s": 7.519
+  },
+  "851": {
+    "name": "Kamil Novak",
+    "latest_rating": 630.0,
+    "total_matches_2026": 118,
+    "mean_resistance_m_s": 7.15,
+    "std_resistance_m_s": 2.539,
+    "eb_resistance_m_s": 7.182
+  },
+  "1748": {
+    "name": "Tomas Milota",
+    "latest_rating": 602.0,
+    "total_matches_2026": 208,
+    "mean_resistance_m_s": 7.189,
+    "std_resistance_m_s": 2.513,
+    "eb_resistance_m_s": 7.205
+  },
+  "1373": {
+    "name": "Miloslav Lubas",
+    "latest_rating": 470.0,
+    "total_matches_2026": 212,
+    "mean_resistance_m_s": 7.219,
+    "std_resistance_m_s": 2.519,
+    "eb_resistance_m_s": 7.234
+  },
+  "1310": {
+    "name": "Vladimir Svoboda",
+    "latest_rating": 465.0,
+    "total_matches_2026": 113,
+    "mean_resistance_m_s": 7.361,
+    "std_resistance_m_s": 2.489,
+    "eb_resistance_m_s": 7.373
+  },
+  "1236": {
+    "name": "Frantisek Trojan",
+    "latest_rating": 470.0,
+    "total_matches_2026": 98,
+    "mean_resistance_m_s": 7.059,
+    "std_resistance_m_s": 2.693,
+    "eb_resistance_m_s": 7.107
+  },
+  "847": {
+    "name": "Milan Smrcek",
+    "latest_rating": 583.0,
+    "total_matches_2026": 303,
+    "mean_resistance_m_s": 7.264,
+    "std_resistance_m_s": 2.582,
+    "eb_resistance_m_s": 7.273
+  },
+  "1239": {
+    "name": "Ladislav Havel",
+    "latest_rating": 495.0,
+    "total_matches_2026": 384,
+    "mean_resistance_m_s": 7.192,
+    "std_resistance_m_s": 2.53,
+    "eb_resistance_m_s": 7.201
+  },
+  "1344": {
+    "name": "Petr Picek",
+    "latest_rating": 602.0,
+    "total_matches_2026": 385,
+    "mean_resistance_m_s": 7.08,
+    "std_resistance_m_s": 2.512,
+    "eb_resistance_m_s": 7.093
+  },
+  "798": {
+    "name": "Radek Bartunek",
+    "latest_rating": 574.0,
+    "total_matches_2026": 441,
+    "mean_resistance_m_s": 7.147,
+    "std_resistance_m_s": 2.574,
+    "eb_resistance_m_s": 7.157
+  },
+  "1283": {
+    "name": "Radovan Polasek",
+    "latest_rating": 1032.0,
+    "total_matches_2026": 930,
+    "mean_resistance_m_s": 7.486,
+    "std_resistance_m_s": 2.529,
+    "eb_resistance_m_s": 7.485
+  },
+  "1705": {
+    "name": "Michal Cabis",
+    "latest_rating": 1002.0,
+    "total_matches_2026": 575,
+    "mean_resistance_m_s": 7.505,
+    "std_resistance_m_s": 2.456,
+    "eb_resistance_m_s": 7.504
+  },
+  "881": {
+    "name": "Marcel Pikous",
+    "latest_rating": 888.0,
+    "total_matches_2026": 471,
+    "mean_resistance_m_s": 7.251,
+    "std_resistance_m_s": 2.534,
+    "eb_resistance_m_s": 7.257
+  },
+  "756": {
+    "name": "Frantisek Just",
+    "latest_rating": 748.0,
+    "total_matches_2026": 223,
+    "mean_resistance_m_s": 7.063,
+    "std_resistance_m_s": 2.521,
+    "eb_resistance_m_s": 7.086
+  },
+  "875": {
+    "name": "Martin Sobisek",
+    "latest_rating": 791.0,
+    "total_matches_2026": 838,
+    "mean_resistance_m_s": 7.492,
+    "std_resistance_m_s": 2.488,
+    "eb_resistance_m_s": 7.492
+  },
+  "1600": {
+    "name": "Michal Vondrak",
+    "latest_rating": 860.0,
+    "total_matches_2026": 462,
+    "mean_resistance_m_s": 7.574,
+    "std_resistance_m_s": 2.475,
+    "eb_resistance_m_s": 7.571
+  },
+  "1671": {
+    "name": "Karel Schopf",
+    "latest_rating": 867.0,
+    "total_matches_2026": 331,
+    "mean_resistance_m_s": 7.387,
+    "std_resistance_m_s": 2.593,
+    "eb_resistance_m_s": 7.39
+  },
+  "1811": {
+    "name": "David Barton",
+    "latest_rating": 567.0,
+    "total_matches_2026": 192,
+    "mean_resistance_m_s": 7.201,
+    "std_resistance_m_s": 2.529,
+    "eb_resistance_m_s": 7.218
+  },
+  "781": {
+    "name": "Jiri Pozarsky",
+    "latest_rating": 800.0,
+    "total_matches_2026": 196,
+    "mean_resistance_m_s": 7.208,
+    "std_resistance_m_s": 2.424,
+    "eb_resistance_m_s": 7.224
+  },
+  "748": {
+    "name": "Vlastimil Pecka",
+    "latest_rating": 562.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.398,
+    "std_resistance_m_s": 2.488,
+    "eb_resistance_m_s": 7.415
+  },
+  "1414": {
+    "name": "Marek Blejchar",
+    "latest_rating": 643.0,
+    "total_matches_2026": 496,
+    "mean_resistance_m_s": 7.319,
+    "std_resistance_m_s": 2.6,
+    "eb_resistance_m_s": 7.323
+  },
+  "1412": {
+    "name": "Jan Steffan",
+    "latest_rating": 615.0,
+    "total_matches_2026": 691,
+    "mean_resistance_m_s": 7.256,
+    "std_resistance_m_s": 2.481,
+    "eb_resistance_m_s": 7.26
+  },
+  "1676": {
+    "name": "Petr Lastuvka",
+    "latest_rating": 597.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.015,
+    "std_resistance_m_s": 2.358,
+    "eb_resistance_m_s": 7.105
+  },
+  "1725": {
+    "name": "Marcel Heczko",
+    "latest_rating": 693.0,
+    "total_matches_2026": 445,
+    "mean_resistance_m_s": 7.319,
+    "std_resistance_m_s": 2.385,
+    "eb_resistance_m_s": 7.324
+  },
+  "1374": {
+    "name": "Josef Pelikan",
+    "latest_rating": 466.0,
+    "total_matches_2026": 239,
+    "mean_resistance_m_s": 6.921,
+    "std_resistance_m_s": 2.432,
+    "eb_resistance_m_s": 6.949
+  },
+  "863": {
+    "name": "Daniel Tuma",
+    "latest_rating": 788.0,
+    "total_matches_2026": 988,
+    "mean_resistance_m_s": 7.647,
+    "std_resistance_m_s": 2.405,
+    "eb_resistance_m_s": 7.645
+  },
+  "1802": {
+    "name": "Jakub Lauber",
+    "latest_rating": 637.0,
+    "total_matches_2026": 99,
+    "mean_resistance_m_s": 7.409,
+    "std_resistance_m_s": 2.364,
+    "eb_resistance_m_s": 7.417
+  },
+  "934": {
+    "name": "Jiri Plachy",
+    "latest_rating": 714.0,
+    "total_matches_2026": 1075,
+    "mean_resistance_m_s": 7.264,
+    "std_resistance_m_s": 2.442,
+    "eb_resistance_m_s": 7.267
+  },
+  "1515": {
+    "name": "Ladislav Novotny",
+    "latest_rating": 381.0,
+    "total_matches_2026": 258,
+    "mean_resistance_m_s": 7.132,
+    "std_resistance_m_s": 2.414,
+    "eb_resistance_m_s": 7.148
+  },
+  "1498": {
+    "name": "Lukas Malek",
+    "latest_rating": 627.0,
+    "total_matches_2026": 244,
+    "mean_resistance_m_s": 7.201,
+    "std_resistance_m_s": 2.706,
+    "eb_resistance_m_s": 7.215
+  },
+  "789": {
+    "name": "Josef Belovsky",
+    "latest_rating": 686.0,
+    "total_matches_2026": 283,
+    "mean_resistance_m_s": 7.216,
+    "std_resistance_m_s": 2.522,
+    "eb_resistance_m_s": 7.228
+  },
+  "1144": {
+    "name": "Jaroslav Strnad",
+    "latest_rating": 309.0,
+    "total_matches_2026": 196,
+    "mean_resistance_m_s": 7.075,
+    "std_resistance_m_s": 2.601,
+    "eb_resistance_m_s": 7.1
+  },
+  "911": {
+    "name": "Julius Lazar",
+    "latest_rating": 724.0,
+    "total_matches_2026": 60,
+    "mean_resistance_m_s": 7.199,
+    "std_resistance_m_s": 2.449,
+    "eb_resistance_m_s": 7.247
+  },
+  "808": {
+    "name": "Vladimir Havlicek",
+    "latest_rating": 646.0,
+    "total_matches_2026": 228,
+    "mean_resistance_m_s": 7.206,
+    "std_resistance_m_s": 2.582,
+    "eb_resistance_m_s": 7.22
+  },
+  "1046": {
+    "name": "Radomir Revay",
+    "latest_rating": 1054.0,
+    "total_matches_2026": 601,
+    "mean_resistance_m_s": 7.665,
+    "std_resistance_m_s": 2.487,
+    "eb_resistance_m_s": 7.661
+  },
+  "950": {
+    "name": "Jan Varcl",
+    "latest_rating": 630.0,
+    "total_matches_2026": 197,
+    "mean_resistance_m_s": 7.406,
+    "std_resistance_m_s": 2.488,
+    "eb_resistance_m_s": 7.411
+  },
+  "1035": {
+    "name": "Richard Skacelik",
+    "latest_rating": 733.0,
+    "total_matches_2026": 472,
+    "mean_resistance_m_s": 7.519,
+    "std_resistance_m_s": 2.537,
+    "eb_resistance_m_s": 7.518
+  },
+  "990": {
+    "name": "Jaroslav Neuwirth",
+    "latest_rating": 739.0,
+    "total_matches_2026": 240,
+    "mean_resistance_m_s": 7.453,
+    "std_resistance_m_s": 2.539,
+    "eb_resistance_m_s": 7.455
+  },
+  "909": {
+    "name": "Pavel Kulhanek",
+    "latest_rating": 475.0,
+    "total_matches_2026": 297,
+    "mean_resistance_m_s": 7.235,
+    "std_resistance_m_s": 2.54,
+    "eb_resistance_m_s": 7.245
+  },
+  "1815": {
+    "name": "Petr Stehlik",
+    "latest_rating": 860.0,
+    "total_matches_2026": 98,
+    "mean_resistance_m_s": 7.288,
+    "std_resistance_m_s": 2.598,
+    "eb_resistance_m_s": 7.31
+  },
+  "1827": {
+    "name": "Lukas Kern",
+    "latest_rating": 858.0,
+    "total_matches_2026": 274,
+    "mean_resistance_m_s": 7.332,
+    "std_resistance_m_s": 2.468,
+    "eb_resistance_m_s": 7.339
+  },
+  "1613": {
+    "name": "Matej Nohejl",
+    "latest_rating": 832.0,
+    "total_matches_2026": 119,
+    "mean_resistance_m_s": 7.462,
+    "std_resistance_m_s": 2.495,
+    "eb_resistance_m_s": 7.464
+  },
+  "1164": {
+    "name": "Michael Sedlacek",
+    "latest_rating": 1058.0,
+    "total_matches_2026": 300,
+    "mean_resistance_m_s": 7.664,
+    "std_resistance_m_s": 2.666,
+    "eb_resistance_m_s": 7.657
+  },
+  "687": {
+    "name": "Jan Kanera",
+    "latest_rating": 979.0,
+    "total_matches_2026": 359,
+    "mean_resistance_m_s": 7.637,
+    "std_resistance_m_s": 2.538,
+    "eb_resistance_m_s": 7.632
+  },
+  "1193": {
+    "name": "Jan Dzida",
+    "latest_rating": 1098.0,
+    "total_matches_2026": 375,
+    "mean_resistance_m_s": 7.588,
+    "std_resistance_m_s": 2.599,
+    "eb_resistance_m_s": 7.584
+  },
+  "1664": {
+    "name": "Jakub Vales",
+    "latest_rating": 1053.0,
+    "total_matches_2026": 460,
+    "mean_resistance_m_s": 7.532,
+    "std_resistance_m_s": 2.543,
+    "eb_resistance_m_s": 7.531
+  },
+  "1633": {
+    "name": "Ondrej Cmerda",
+    "latest_rating": 894.0,
+    "total_matches_2026": 173,
+    "mean_resistance_m_s": 7.583,
+    "std_resistance_m_s": 2.416,
+    "eb_resistance_m_s": 7.576
+  },
+  "1173": {
+    "name": "Dominik Oborny",
+    "latest_rating": 712.0,
+    "total_matches_2026": 471,
+    "mean_resistance_m_s": 7.328,
+    "std_resistance_m_s": 2.487,
+    "eb_resistance_m_s": 7.332
+  },
+  "1518": {
+    "name": "Lukas Krok",
+    "latest_rating": 681.0,
+    "total_matches_2026": 257,
+    "mean_resistance_m_s": 7.215,
+    "std_resistance_m_s": 2.444,
+    "eb_resistance_m_s": 7.227
+  },
+  "771": {
+    "name": "Zdenek Bilek",
+    "latest_rating": 1007.0,
+    "total_matches_2026": 206,
+    "mean_resistance_m_s": 7.509,
+    "std_resistance_m_s": 2.72,
+    "eb_resistance_m_s": 7.507
+  },
+  "1545": {
+    "name": "Yurii Holovatiuk",
+    "latest_rating": 658.0,
+    "total_matches_2026": 471,
+    "mean_resistance_m_s": 7.305,
+    "std_resistance_m_s": 2.538,
+    "eb_resistance_m_s": 7.309
+  },
+  "1418": {
+    "name": "Tomas Dousa",
+    "latest_rating": 685.0,
+    "total_matches_2026": 506,
+    "mean_resistance_m_s": 7.461,
+    "std_resistance_m_s": 2.444,
+    "eb_resistance_m_s": 7.461
+  },
+  "954": {
+    "name": "Matej Pycha",
+    "latest_rating": 367.0,
+    "total_matches_2026": 103,
+    "mean_resistance_m_s": 6.76,
+    "std_resistance_m_s": 2.502,
+    "eb_resistance_m_s": 6.841
+  },
+  "1605": {
+    "name": "Miroslav Novotny",
+    "latest_rating": 523.0,
+    "total_matches_2026": 187,
+    "mean_resistance_m_s": 7.241,
+    "std_resistance_m_s": 2.546,
+    "eb_resistance_m_s": 7.256
+  },
+  "1566": {
+    "name": "Vaclav Kosar",
+    "latest_rating": 586.0,
+    "total_matches_2026": 336,
+    "mean_resistance_m_s": 7.32,
+    "std_resistance_m_s": 2.578,
+    "eb_resistance_m_s": 7.326
+  },
+  "805": {
+    "name": "Ondrej Kucirek",
+    "latest_rating": 651.0,
+    "total_matches_2026": 303,
+    "mean_resistance_m_s": 7.238,
+    "std_resistance_m_s": 2.519,
+    "eb_resistance_m_s": 7.248
+  },
+  "1717": {
+    "name": "Adam Pokorny",
+    "latest_rating": 998.0,
+    "total_matches_2026": 260,
+    "mean_resistance_m_s": 7.547,
+    "std_resistance_m_s": 2.555,
+    "eb_resistance_m_s": 7.544
+  },
+  "1372": {
+    "name": "David Tomasch",
+    "latest_rating": 389.0,
+    "total_matches_2026": 81,
+    "mean_resistance_m_s": 7.085,
+    "std_resistance_m_s": 2.522,
+    "eb_resistance_m_s": 7.139
+  },
+  "1670": {
+    "name": "Milos Pospisil",
+    "latest_rating": 595.0,
+    "total_matches_2026": 144,
+    "mean_resistance_m_s": 7.1,
+    "std_resistance_m_s": 2.614,
+    "eb_resistance_m_s": 7.13
+  },
+  "1812": {
+    "name": "Tomas Milkov",
+    "latest_rating": 583.0,
+    "total_matches_2026": 159,
+    "mean_resistance_m_s": 7.629,
+    "std_resistance_m_s": 2.449,
+    "eb_resistance_m_s": 7.618
+  },
+  "716": {
+    "name": "Miroslav Svedik",
+    "latest_rating": 588.0,
+    "total_matches_2026": 80,
+    "mean_resistance_m_s": 6.92,
+    "std_resistance_m_s": 2.584,
+    "eb_resistance_m_s": 7.0
+  },
+  "1195": {
+    "name": "Eduard Sionkala",
+    "latest_rating": 511.0,
+    "total_matches_2026": 127,
+    "mean_resistance_m_s": 7.295,
+    "std_resistance_m_s": 2.584,
+    "eb_resistance_m_s": 7.311
+  },
+  "708": {
+    "name": "Josef Obeslo",
+    "latest_rating": 933.0,
+    "total_matches_2026": 28,
+    "mean_resistance_m_s": 7.593,
+    "std_resistance_m_s": 2.917,
+    "eb_resistance_m_s": 7.558
+  },
+  "1183": {
+    "name": "Vit Havlik",
+    "latest_rating": 817.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.152,
+    "std_resistance_m_s": 2.393,
+    "eb_resistance_m_s": 7.217
+  },
+  "1092": {
+    "name": "Marek Holub",
+    "latest_rating": 848.0,
+    "total_matches_2026": 335,
+    "mean_resistance_m_s": 7.452,
+    "std_resistance_m_s": 2.466,
+    "eb_resistance_m_s": 7.453
+  },
+  "1158": {
+    "name": "Robin Pacha",
+    "latest_rating": 887.0,
+    "total_matches_2026": 185,
+    "mean_resistance_m_s": 7.436,
+    "std_resistance_m_s": 2.433,
+    "eb_resistance_m_s": 7.439
+  },
+  "784": {
+    "name": "Tomas Zahradnik",
+    "latest_rating": 902.0,
+    "total_matches_2026": 92,
+    "mean_resistance_m_s": 7.681,
+    "std_resistance_m_s": 2.527,
+    "eb_resistance_m_s": 7.657
+  },
+  "1403": {
+    "name": "Ales Hlawatschke",
+    "latest_rating": 801.0,
+    "total_matches_2026": 110,
+    "mean_resistance_m_s": 7.498,
+    "std_resistance_m_s": 2.452,
+    "eb_resistance_m_s": 7.496
+  },
+  "1634": {
+    "name": "Jakub Kycelt",
+    "latest_rating": 1025.0,
+    "total_matches_2026": 260,
+    "mean_resistance_m_s": 7.363,
+    "std_resistance_m_s": 2.536,
+    "eb_resistance_m_s": 7.368
+  },
+  "1145": {
+    "name": "Jan Potensky",
+    "latest_rating": 393.0,
+    "total_matches_2026": 338,
+    "mean_resistance_m_s": 6.775,
+    "std_resistance_m_s": 2.549,
+    "eb_resistance_m_s": 6.801
+  },
+  "695": {
+    "name": "Tomas Prosa",
+    "latest_rating": 981.0,
+    "total_matches_2026": 121,
+    "mean_resistance_m_s": 7.582,
+    "std_resistance_m_s": 2.457,
+    "eb_resistance_m_s": 7.573
+  },
+  "1736": {
+    "name": "Roman Guliak",
+    "latest_rating": 568.0,
+    "total_matches_2026": 478,
+    "mean_resistance_m_s": 7.345,
+    "std_resistance_m_s": 2.509,
+    "eb_resistance_m_s": 7.348
+  },
+  "1224": {
+    "name": "Stanislav Mazanek",
+    "latest_rating": 408.0,
+    "total_matches_2026": 214,
+    "mean_resistance_m_s": 7.177,
+    "std_resistance_m_s": 2.546,
+    "eb_resistance_m_s": 7.194
+  },
+  "1609": {
+    "name": "Marek Chlebecek",
+    "latest_rating": 793.0,
+    "total_matches_2026": 212,
+    "mean_resistance_m_s": 7.387,
+    "std_resistance_m_s": 2.531,
+    "eb_resistance_m_s": 7.392
+  },
+  "1228": {
+    "name": "Jaromir Cernik",
+    "latest_rating": 368.0,
+    "total_matches_2026": 456,
+    "mean_resistance_m_s": 7.206,
+    "std_resistance_m_s": 2.661,
+    "eb_resistance_m_s": 7.213
+  },
+  "1272": {
+    "name": "Jakub Stolfa",
+    "latest_rating": 782.0,
+    "total_matches_2026": 397,
+    "mean_resistance_m_s": 7.295,
+    "std_resistance_m_s": 2.454,
+    "eb_resistance_m_s": 7.301
+  },
+  "1715": {
+    "name": "Jiri Mikula",
+    "latest_rating": 689.0,
+    "total_matches_2026": 56,
+    "mean_resistance_m_s": 7.301,
+    "std_resistance_m_s": 2.548,
+    "eb_resistance_m_s": 7.333
+  },
+  "1826": {
+    "name": "Jan Blazek",
+    "latest_rating": 650.0,
+    "total_matches_2026": 25,
+    "mean_resistance_m_s": 7.538,
+    "std_resistance_m_s": 2.534,
+    "eb_resistance_m_s": 7.519
+  },
+  "1278": {
+    "name": "Matej Varcl",
+    "latest_rating": 435.0,
+    "total_matches_2026": 36,
+    "mean_resistance_m_s": 7.601,
+    "std_resistance_m_s": 2.277,
+    "eb_resistance_m_s": 7.571
+  },
+  "1784": {
+    "name": "Tomas Dousek",
+    "latest_rating": 1067.0,
+    "total_matches_2026": 408,
+    "mean_resistance_m_s": 7.408,
+    "std_resistance_m_s": 2.412,
+    "eb_resistance_m_s": 7.41
+  },
+  "1731": {
+    "name": "Daniel Tomica",
+    "latest_rating": 1028.0,
+    "total_matches_2026": 155,
+    "mean_resistance_m_s": 7.176,
+    "std_resistance_m_s": 2.512,
+    "eb_resistance_m_s": 7.198
+  },
+  "1804": {
+    "name": "Martin Skotnica",
+    "latest_rating": 1030.0,
+    "total_matches_2026": 192,
+    "mean_resistance_m_s": 7.4,
+    "std_resistance_m_s": 2.413,
+    "eb_resistance_m_s": 7.405
+  },
+  "1016": {
+    "name": "Michal Kratochvil",
+    "latest_rating": 995.0,
+    "total_matches_2026": 392,
+    "mean_resistance_m_s": 7.24,
+    "std_resistance_m_s": 2.47,
+    "eb_resistance_m_s": 7.248
+  },
+  "1727": {
+    "name": "Pavel Smetka",
+    "latest_rating": 609.0,
+    "total_matches_2026": 80,
+    "mean_resistance_m_s": 7.197,
+    "std_resistance_m_s": 2.43,
+    "eb_resistance_m_s": 7.238
+  },
+  "1719": {
+    "name": "Lukas Velicka",
+    "latest_rating": 651.0,
+    "total_matches_2026": 192,
+    "mean_resistance_m_s": 7.684,
+    "std_resistance_m_s": 2.325,
+    "eb_resistance_m_s": 7.672
+  },
+  "1724": {
+    "name": "Radim Adam",
+    "latest_rating": 600.0,
+    "total_matches_2026": 308,
+    "mean_resistance_m_s": 7.48,
+    "std_resistance_m_s": 2.409,
+    "eb_resistance_m_s": 7.48
+  },
+  "1319": {
+    "name": "Tomas Nohejl",
+    "latest_rating": 556.0,
+    "total_matches_2026": 191,
+    "mean_resistance_m_s": 7.339,
+    "std_resistance_m_s": 2.465,
+    "eb_resistance_m_s": 7.348
+  },
+  "1416": {
+    "name": "Jindrich Vrba",
+    "latest_rating": 375.0,
+    "total_matches_2026": 116,
+    "mean_resistance_m_s": 7.254,
+    "std_resistance_m_s": 2.471,
+    "eb_resistance_m_s": 7.277
+  },
+  "923": {
+    "name": "Cesta Havrda",
+    "latest_rating": 306.0,
+    "total_matches_2026": 156,
+    "mean_resistance_m_s": 7.36,
+    "std_resistance_m_s": 2.453,
+    "eb_resistance_m_s": 7.369
+  },
+  "777": {
+    "name": "Tomas Varnuska",
+    "latest_rating": 706.0,
+    "total_matches_2026": 77,
+    "mean_resistance_m_s": 7.043,
+    "std_resistance_m_s": 2.616,
+    "eb_resistance_m_s": 7.106
+  },
+  "1529": {
+    "name": "Jaroslav Bresky",
+    "latest_rating": 678.0,
+    "total_matches_2026": 76,
+    "mean_resistance_m_s": 7.257,
+    "std_resistance_m_s": 2.397,
+    "eb_resistance_m_s": 7.288
+  },
+  "1680": {
+    "name": "Daniel Cupec",
+    "latest_rating": 331.0,
+    "total_matches_2026": 36,
+    "mean_resistance_m_s": 6.906,
+    "std_resistance_m_s": 2.47,
+    "eb_resistance_m_s": 7.059
+  },
+  "1649": {
+    "name": "Martin Sopko",
+    "latest_rating": 878.0,
+    "total_matches_2026": 221,
+    "mean_resistance_m_s": 7.237,
+    "std_resistance_m_s": 2.471,
+    "eb_resistance_m_s": 7.25
+  },
+  "1096": {
+    "name": "Lukas Martinak",
+    "latest_rating": 724.0,
+    "total_matches_2026": 220,
+    "mean_resistance_m_s": 7.372,
+    "std_resistance_m_s": 2.575,
+    "eb_resistance_m_s": 7.378
+  },
+  "1683": {
+    "name": "Pavel Vondra",
+    "latest_rating": 634.0,
+    "total_matches_2026": 8,
+    "mean_resistance_m_s": 6.688,
+    "std_resistance_m_s": 2.493,
+    "eb_resistance_m_s": 7.171
+  },
+  "1710": {
+    "name": "Evzen Rychlik",
+    "latest_rating": 754.0,
+    "total_matches_2026": 117,
+    "mean_resistance_m_s": 7.229,
+    "std_resistance_m_s": 2.537,
+    "eb_resistance_m_s": 7.253
+  },
+  "884": {
+    "name": "Jaroslav Schwan",
+    "latest_rating": 727.0,
+    "total_matches_2026": 253,
+    "mean_resistance_m_s": 7.334,
+    "std_resistance_m_s": 2.503,
+    "eb_resistance_m_s": 7.34
+  },
+  "1662": {
+    "name": "Martin Vizek",
+    "latest_rating": 814.0,
+    "total_matches_2026": 268,
+    "mean_resistance_m_s": 7.439,
+    "std_resistance_m_s": 2.539,
+    "eb_resistance_m_s": 7.441
+  },
+  "1421": {
+    "name": "Richard Krejci",
+    "latest_rating": 820.0,
+    "total_matches_2026": 228,
+    "mean_resistance_m_s": 7.091,
+    "std_resistance_m_s": 2.45,
+    "eb_resistance_m_s": 7.111
+  },
+  "1475": {
+    "name": "Jaroslav Martinek",
+    "latest_rating": 392.0,
+    "total_matches_2026": 120,
+    "mean_resistance_m_s": 6.902,
+    "std_resistance_m_s": 2.668,
+    "eb_resistance_m_s": 6.958
+  },
+  "1395": {
+    "name": "Josef Rossler",
+    "latest_rating": 480.0,
+    "total_matches_2026": 41,
+    "mean_resistance_m_s": 7.092,
+    "std_resistance_m_s": 2.715,
+    "eb_resistance_m_s": 7.183
+  },
+  "1376": {
+    "name": "Roman Buric",
+    "latest_rating": 312.0,
+    "total_matches_2026": 47,
+    "mean_resistance_m_s": 7.074,
+    "std_resistance_m_s": 2.744,
+    "eb_resistance_m_s": 7.158
+  },
+  "1627": {
+    "name": "Tomas Vinter",
+    "latest_rating": 766.0,
+    "total_matches_2026": 379,
+    "mean_resistance_m_s": 7.152,
+    "std_resistance_m_s": 2.619,
+    "eb_resistance_m_s": 7.163
+  },
+  "1824": {
+    "name": "Martin Ulrych",
+    "latest_rating": 528.0,
+    "total_matches_2026": 165,
+    "mean_resistance_m_s": 7.464,
+    "std_resistance_m_s": 2.497,
+    "eb_resistance_m_s": 7.466
+  },
+  "1558": {
+    "name": "Martin Bohac",
+    "latest_rating": 442.0,
+    "total_matches_2026": 72,
+    "mean_resistance_m_s": 7.608,
+    "std_resistance_m_s": 2.561,
+    "eb_resistance_m_s": 7.589
+  },
+  "1743": {
+    "name": "Adrian Walek",
+    "latest_rating": 727.0,
+    "total_matches_2026": 430,
+    "mean_resistance_m_s": 7.555,
+    "std_resistance_m_s": 2.468,
+    "eb_resistance_m_s": 7.553
+  },
+  "1038": {
+    "name": "Dalimil Machander",
+    "latest_rating": 667.0,
+    "total_matches_2026": 394,
+    "mean_resistance_m_s": 7.439,
+    "std_resistance_m_s": 2.468,
+    "eb_resistance_m_s": 7.44
+  },
+  "1831": {
+    "name": "Matej Kostak",
+    "latest_rating": 412.0,
+    "total_matches_2026": 40,
+    "mean_resistance_m_s": 7.203,
+    "std_resistance_m_s": 2.753,
+    "eb_resistance_m_s": 7.266
+  },
+  "1587": {
+    "name": "Tomas Kucera",
+    "latest_rating": 389.0,
+    "total_matches_2026": 105,
+    "mean_resistance_m_s": 7.099,
+    "std_resistance_m_s": 2.634,
+    "eb_resistance_m_s": 7.141
+  },
+  "1829": {
+    "name": "Daniel Unzeitig",
+    "latest_rating": 815.0,
+    "total_matches_2026": 312,
+    "mean_resistance_m_s": 7.376,
+    "std_resistance_m_s": 2.512,
+    "eb_resistance_m_s": 7.38
+  },
+  "1137": {
+    "name": "Pavel Bajtek",
+    "latest_rating": 619.0,
+    "total_matches_2026": 44,
+    "mean_resistance_m_s": 7.424,
+    "std_resistance_m_s": 2.548,
+    "eb_resistance_m_s": 7.436
+  },
+  "1307": {
+    "name": "Petr Vojtech",
+    "latest_rating": 511.0,
+    "total_matches_2026": 28,
+    "mean_resistance_m_s": 7.67,
+    "std_resistance_m_s": 2.603,
+    "eb_resistance_m_s": 7.611
+  },
+  "1551": {
+    "name": "Petr Budinsky",
+    "latest_rating": 711.0,
+    "total_matches_2026": 153,
+    "mean_resistance_m_s": 6.982,
+    "std_resistance_m_s": 2.489,
+    "eb_resistance_m_s": 7.02
+  },
+  "1741": {
+    "name": "Matej Levicky",
+    "latest_rating": 460.0,
+    "total_matches_2026": 303,
+    "mean_resistance_m_s": 7.297,
+    "std_resistance_m_s": 2.529,
+    "eb_resistance_m_s": 7.304
+  },
+  "1219": {
+    "name": "Josef Toth",
+    "latest_rating": 363.0,
+    "total_matches_2026": 119,
+    "mean_resistance_m_s": 7.452,
+    "std_resistance_m_s": 2.289,
+    "eb_resistance_m_s": 7.455
+  },
+  "1795": {
+    "name": "Simon Blabla",
+    "latest_rating": 356.0,
+    "total_matches_2026": 12,
+    "mean_resistance_m_s": 6.978,
+    "std_resistance_m_s": 2.534,
+    "eb_resistance_m_s": 7.242
+  },
+  "1814": {
+    "name": "Miroslav Stolba",
+    "latest_rating": 359.0,
+    "total_matches_2026": 91,
+    "mean_resistance_m_s": 7.242,
+    "std_resistance_m_s": 2.427,
+    "eb_resistance_m_s": 7.27
+  },
+  "787": {
+    "name": "Tomek Batog",
+    "latest_rating": 875.0,
+    "total_matches_2026": 48,
+    "mean_resistance_m_s": 7.528,
+    "std_resistance_m_s": 2.585,
+    "eb_resistance_m_s": 7.519
+  },
+  "1601": {
+    "name": "Jiri Jira",
+    "latest_rating": 203.0,
+    "total_matches_2026": 48,
+    "mean_resistance_m_s": 7.438,
+    "std_resistance_m_s": 2.582,
+    "eb_resistance_m_s": 7.447
+  },
+  "1659": {
+    "name": "Ivo Zikmund",
+    "latest_rating": 243.0,
+    "total_matches_2026": 76,
+    "mean_resistance_m_s": 7.387,
+    "std_resistance_m_s": 2.165,
+    "eb_resistance_m_s": 7.401
+  },
+  "935": {
+    "name": "Vladimir Kubat",
+    "latest_rating": 276.0,
+    "total_matches_2026": 176,
+    "mean_resistance_m_s": 7.212,
+    "std_resistance_m_s": 2.515,
+    "eb_resistance_m_s": 7.23
+  },
+  "774": {
+    "name": "Petr Sudek",
+    "latest_rating": 455.0,
+    "total_matches_2026": 88,
+    "mean_resistance_m_s": 7.518,
+    "std_resistance_m_s": 2.484,
+    "eb_resistance_m_s": 7.513
+  },
+  "1255": {
+    "name": "Vitezslav Burdik",
+    "latest_rating": 945.0,
+    "total_matches_2026": 118,
+    "mean_resistance_m_s": 7.425,
+    "std_resistance_m_s": 2.417,
+    "eb_resistance_m_s": 7.43
+  },
+  "867": {
+    "name": "Ondrej Pastorek",
+    "latest_rating": 509.0,
+    "total_matches_2026": 34,
+    "mean_resistance_m_s": 6.921,
+    "std_resistance_m_s": 2.657,
+    "eb_resistance_m_s": 7.08
+  },
+  "1253": {
+    "name": "Marcel Marjan",
+    "latest_rating": 348.0,
+    "total_matches_2026": 64,
+    "mean_resistance_m_s": 7.262,
+    "std_resistance_m_s": 2.577,
+    "eb_resistance_m_s": 7.297
+  },
+  "1832": {
+    "name": "Roman Urban",
+    "latest_rating": 570.0,
+    "total_matches_2026": 145,
+    "mean_resistance_m_s": 7.109,
+    "std_resistance_m_s": 2.676,
+    "eb_resistance_m_s": 7.139
+  },
+  "1520": {
+    "name": "Tomas Regner",
+    "latest_rating": 521.0,
+    "total_matches_2026": 620,
+    "mean_resistance_m_s": 7.258,
+    "std_resistance_m_s": 2.581,
+    "eb_resistance_m_s": 7.263
+  },
+  "854": {
+    "name": "Lukas Jindrak",
+    "latest_rating": 1077.0,
+    "total_matches_2026": 299,
+    "mean_resistance_m_s": 7.505,
+    "std_resistance_m_s": 2.488,
+    "eb_resistance_m_s": 7.504
+  },
+  "1689": {
+    "name": "Petr Franc",
+    "latest_rating": 480.0,
+    "total_matches_2026": 91,
+    "mean_resistance_m_s": 7.169,
+    "std_resistance_m_s": 2.686,
+    "eb_resistance_m_s": 7.208
+  },
+  "1833": {
+    "name": "Libor Stacho",
+    "latest_rating": 659.0,
+    "total_matches_2026": 80,
+    "mean_resistance_m_s": 7.182,
+    "std_resistance_m_s": 2.663,
+    "eb_resistance_m_s": 7.222
+  },
+  "679": {
+    "name": "Pavel Gireth",
+    "latest_rating": 1021.0,
+    "total_matches_2026": 124,
+    "mean_resistance_m_s": 7.313,
+    "std_resistance_m_s": 2.564,
+    "eb_resistance_m_s": 7.328
+  },
+  "1723": {
+    "name": "Jan Stoch",
+    "latest_rating": 710.0,
+    "total_matches_2026": 72,
+    "mean_resistance_m_s": 7.486,
+    "std_resistance_m_s": 2.496,
+    "eb_resistance_m_s": 7.485
+  },
+  "1055": {
+    "name": "Dalibor Kolek",
+    "latest_rating": 451.0,
+    "total_matches_2026": 39,
+    "mean_resistance_m_s": 7.641,
+    "std_resistance_m_s": 2.582,
+    "eb_resistance_m_s": 7.602
+  },
+  "1782": {
+    "name": "Tomas Kraninger",
+    "latest_rating": 546.0,
+    "total_matches_2026": 171,
+    "mean_resistance_m_s": 7.517,
+    "std_resistance_m_s": 2.478,
+    "eb_resistance_m_s": 7.515
+  },
+  "1834": {
+    "name": "David Nosek",
+    "latest_rating": 528.0,
+    "total_matches_2026": 14,
+    "mean_resistance_m_s": 6.949,
+    "std_resistance_m_s": 2.494,
+    "eb_resistance_m_s": 7.193
+  },
+  "1602": {
+    "name": "Pavel Petr",
+    "latest_rating": 266.0,
+    "total_matches_2026": 76,
+    "mean_resistance_m_s": 7.568,
+    "std_resistance_m_s": 2.564,
+    "eb_resistance_m_s": 7.555
+  },
+  "1708": {
+    "name": "Jakub Pilch",
+    "latest_rating": 1021.0,
+    "total_matches_2026": 327,
+    "mean_resistance_m_s": 7.264,
+    "std_resistance_m_s": 2.516,
+    "eb_resistance_m_s": 7.272
+  },
+  "685": {
+    "name": "Ales Bayer",
+    "latest_rating": 875.0,
+    "total_matches_2026": 684,
+    "mean_resistance_m_s": 7.579,
+    "std_resistance_m_s": 2.465,
+    "eb_resistance_m_s": 7.577
+  },
+  "1443": {
+    "name": "Petr Monik",
+    "latest_rating": 244.0,
+    "total_matches_2026": 32,
+    "mean_resistance_m_s": 7.363,
+    "std_resistance_m_s": 2.349,
+    "eb_resistance_m_s": 7.395
+  },
+  "1608": {
+    "name": "Jiri Koch",
+    "latest_rating": 231.0,
+    "total_matches_2026": 60,
+    "mean_resistance_m_s": 7.456,
+    "std_resistance_m_s": 2.505,
+    "eb_resistance_m_s": 7.46
+  },
+  "1209": {
+    "name": "David Szotek",
+    "latest_rating": 904.0,
+    "total_matches_2026": 300,
+    "mean_resistance_m_s": 7.341,
+    "std_resistance_m_s": 2.478,
+    "eb_resistance_m_s": 7.347
+  },
+  "1797": {
+    "name": "Jan Broskevic",
+    "latest_rating": 320.0,
+    "total_matches_2026": 4,
+    "mean_resistance_m_s": 7.143,
+    "std_resistance_m_s": 2.531,
+    "eb_resistance_m_s": 7.406
+  },
+  "1274": {
+    "name": "Jiri Foltynek",
+    "latest_rating": 307.0,
+    "total_matches_2026": 71,
+    "mean_resistance_m_s": 7.498,
+    "std_resistance_m_s": 2.396,
+    "eb_resistance_m_s": 7.495
+  },
+  "1701": {
+    "name": "David Vavrecka",
+    "latest_rating": 363.0,
+    "total_matches_2026": 84,
+    "mean_resistance_m_s": 7.355,
+    "std_resistance_m_s": 2.435,
+    "eb_resistance_m_s": 7.371
+  },
+  "1050": {
+    "name": "Jiri Motak",
+    "latest_rating": 255.0,
+    "total_matches_2026": 76,
+    "mean_resistance_m_s": 7.268,
+    "std_resistance_m_s": 2.405,
+    "eb_resistance_m_s": 7.299
+  },
+  "1738": {
+    "name": "Ivan Kolenciak",
+    "latest_rating": 344.0,
+    "total_matches_2026": 136,
+    "mean_resistance_m_s": 7.214,
+    "std_resistance_m_s": 2.462,
+    "eb_resistance_m_s": 7.237
+  },
+  "1742": {
+    "name": "Daniel Tyn",
+    "latest_rating": 502.0,
+    "total_matches_2026": 199,
+    "mean_resistance_m_s": 7.438,
+    "std_resistance_m_s": 2.535,
+    "eb_resistance_m_s": 7.441
+  },
+  "1730": {
+    "name": "Michal Kaspar",
+    "latest_rating": 431.0,
+    "total_matches_2026": 116,
+    "mean_resistance_m_s": 7.358,
+    "std_resistance_m_s": 2.479,
+    "eb_resistance_m_s": 7.369
+  },
+  "1440": {
+    "name": "Petr Serak",
+    "latest_rating": 268.0,
+    "total_matches_2026": 92,
+    "mean_resistance_m_s": 7.361,
+    "std_resistance_m_s": 2.68,
+    "eb_resistance_m_s": 7.376
+  },
+  "1254": {
+    "name": "Jiri Moravek",
+    "latest_rating": 569.0,
+    "total_matches_2026": 116,
+    "mean_resistance_m_s": 7.263,
+    "std_resistance_m_s": 2.412,
+    "eb_resistance_m_s": 7.285
+  },
+  "1799": {
+    "name": "Tomas Cernin",
+    "latest_rating": 755.0,
+    "total_matches_2026": 77,
+    "mean_resistance_m_s": 7.625,
+    "std_resistance_m_s": 2.479,
+    "eb_resistance_m_s": 7.605
+  },
+  "1563": {
+    "name": "Martin Sychra",
+    "latest_rating": 855.0,
+    "total_matches_2026": 1142,
+    "mean_resistance_m_s": 7.566,
+    "std_resistance_m_s": 2.491,
+    "eb_resistance_m_s": 7.565
+  },
+  "1665": {
+    "name": "Michal Hampl",
+    "latest_rating": 957.0,
+    "total_matches_2026": 97,
+    "mean_resistance_m_s": 7.273,
+    "std_resistance_m_s": 2.436,
+    "eb_resistance_m_s": 7.298
+  },
+  "1699": {
+    "name": "Josef Pantak",
+    "latest_rating": 317.0,
+    "total_matches_2026": 28,
+    "mean_resistance_m_s": 7.096,
+    "std_resistance_m_s": 2.744,
+    "eb_resistance_m_s": 7.212
+  },
+  "1539": {
+    "name": "Jakub Tazler",
+    "latest_rating": 914.0,
+    "total_matches_2026": 593,
+    "mean_resistance_m_s": 7.517,
+    "std_resistance_m_s": 2.475,
+    "eb_resistance_m_s": 7.516
+  },
+  "821": {
+    "name": "Tomas Kos",
+    "latest_rating": 1089.0,
+    "total_matches_2026": 123,
+    "mean_resistance_m_s": 7.308,
+    "std_resistance_m_s": 2.603,
+    "eb_resistance_m_s": 7.325
+  },
+  "1152": {
+    "name": "Frantisek Laburda",
+    "latest_rating": 755.0,
+    "total_matches_2026": 100,
+    "mean_resistance_m_s": 7.413,
+    "std_resistance_m_s": 2.542,
+    "eb_resistance_m_s": 7.42
+  },
+  "1781": {
+    "name": "Jiri Holubec",
+    "latest_rating": 802.0,
+    "total_matches_2026": 85,
+    "mean_resistance_m_s": 7.762,
+    "std_resistance_m_s": 2.727,
+    "eb_resistance_m_s": 7.726
+  },
+  "1672": {
+    "name": "Antonin Schneeberger",
+    "latest_rating": 484.0,
+    "total_matches_2026": 294,
+    "mean_resistance_m_s": 7.28,
+    "std_resistance_m_s": 2.39,
+    "eb_resistance_m_s": 7.288
+  },
+  "1769": {
+    "name": "Pavel Varecha",
+    "latest_rating": 558.0,
+    "total_matches_2026": 196,
+    "mean_resistance_m_s": 7.208,
+    "std_resistance_m_s": 2.44,
+    "eb_resistance_m_s": 7.224
+  },
+  "1801": {
+    "name": "Kayque Valois",
+    "latest_rating": 1047.0,
+    "total_matches_2026": 20,
+    "mean_resistance_m_s": 7.571,
+    "std_resistance_m_s": 2.485,
+    "eb_resistance_m_s": 7.537
+  },
+  "1766": {
+    "name": "Tomas Hrabec",
+    "latest_rating": 536.0,
+    "total_matches_2026": 144,
+    "mean_resistance_m_s": 7.486,
+    "std_resistance_m_s": 2.626,
+    "eb_resistance_m_s": 7.485
+  },
+  "1788": {
+    "name": "Vitezslav Bosak",
+    "latest_rating": 591.0,
+    "total_matches_2026": 315,
+    "mean_resistance_m_s": 7.291,
+    "std_resistance_m_s": 2.525,
+    "eb_resistance_m_s": 7.298
+  },
+  "1076": {
+    "name": "Ondrej Homola",
+    "latest_rating": 407.0,
+    "total_matches_2026": 48,
+    "mean_resistance_m_s": 6.681,
+    "std_resistance_m_s": 2.839,
+    "eb_resistance_m_s": 6.849
+  },
+  "1641": {
+    "name": "Cestmir Simunek",
+    "latest_rating": 504.0,
+    "total_matches_2026": 12,
+    "mean_resistance_m_s": 7.898,
+    "std_resistance_m_s": 2.225,
+    "eb_resistance_m_s": 7.687
+  },
+  "1690": {
+    "name": "Alexander Mikuska",
+    "latest_rating": 683.0,
+    "total_matches_2026": 164,
+    "mean_resistance_m_s": 7.136,
+    "std_resistance_m_s": 2.539,
+    "eb_resistance_m_s": 7.159
+  },
+  "1712": {
+    "name": "Tomas Petrek",
+    "latest_rating": 753.0,
+    "total_matches_2026": 148,
+    "mean_resistance_m_s": 7.516,
+    "std_resistance_m_s": 2.492,
+    "eb_resistance_m_s": 7.513
+  },
+  "1808": {
+    "name": "Ondrej Fejtek",
+    "latest_rating": 613.0,
+    "total_matches_2026": 36,
+    "mean_resistance_m_s": 7.676,
+    "std_resistance_m_s": 2.38,
+    "eb_resistance_m_s": 7.626
+  },
+  "948": {
+    "name": "Lukas Babicka",
+    "latest_rating": 648.0,
+    "total_matches_2026": 64,
+    "mean_resistance_m_s": 6.996,
+    "std_resistance_m_s": 2.505,
+    "eb_resistance_m_s": 7.075
+  },
+  "938": {
+    "name": "Jiri Hyrsl",
+    "latest_rating": 355.0,
+    "total_matches_2026": 131,
+    "mean_resistance_m_s": 7.119,
+    "std_resistance_m_s": 2.595,
+    "eb_resistance_m_s": 7.15
+  },
+  "1739": {
+    "name": "Matyas Kolek",
+    "latest_rating": 522.0,
+    "total_matches_2026": 263,
+    "mean_resistance_m_s": 7.372,
+    "std_resistance_m_s": 2.573,
+    "eb_resistance_m_s": 7.377
+  },
+  "1568": {
+    "name": "Pavel Berdych",
+    "latest_rating": 468.0,
+    "total_matches_2026": 258,
+    "mean_resistance_m_s": 7.189,
+    "std_resistance_m_s": 2.451,
+    "eb_resistance_m_s": 7.202
+  },
+  "1789": {
+    "name": "Michal Vesely",
+    "latest_rating": 720.0,
+    "total_matches_2026": 110,
+    "mean_resistance_m_s": 7.374,
+    "std_resistance_m_s": 2.335,
+    "eb_resistance_m_s": 7.385
+  },
+  "1764": {
+    "name": "Daniel Tobola",
+    "latest_rating": 537.0,
+    "total_matches_2026": 67,
+    "mean_resistance_m_s": 7.363,
+    "std_resistance_m_s": 2.462,
+    "eb_resistance_m_s": 7.381
+  },
+  "1774": {
+    "name": "Radim Bartak",
+    "latest_rating": 285.0,
+    "total_matches_2026": 4,
+    "mean_resistance_m_s": 6.471,
+    "std_resistance_m_s": 2.118,
+    "eb_resistance_m_s": 7.224
+  },
+  "1835": {
+    "name": "Lukas Velebil",
+    "latest_rating": 981.0,
+    "total_matches_2026": 95,
+    "mean_resistance_m_s": 7.256,
+    "std_resistance_m_s": 2.556,
+    "eb_resistance_m_s": 7.282
+  },
+  "1746": {
+    "name": "Michal Blaha",
+    "latest_rating": 399.0,
+    "total_matches_2026": 152,
+    "mean_resistance_m_s": 7.329,
+    "std_resistance_m_s": 2.441,
+    "eb_resistance_m_s": 7.34
+  },
+  "1075": {
+    "name": "Alois Kanak",
+    "latest_rating": 368.0,
+    "total_matches_2026": 184,
+    "mean_resistance_m_s": 7.227,
+    "std_resistance_m_s": 2.524,
+    "eb_resistance_m_s": 7.243
+  },
+  "1805": {
+    "name": "Ivo Taichman",
+    "latest_rating": 563.0,
+    "total_matches_2026": 476,
+    "mean_resistance_m_s": 7.384,
+    "std_resistance_m_s": 2.634,
+    "eb_resistance_m_s": 7.386
+  },
+  "1047": {
+    "name": "Ivo Palmi",
+    "latest_rating": 361.0,
+    "total_matches_2026": 76,
+    "mean_resistance_m_s": 7.441,
+    "std_resistance_m_s": 2.21,
+    "eb_resistance_m_s": 7.446
+  },
+  "1778": {
+    "name": "Josef Cabak",
+    "latest_rating": 754.0,
+    "total_matches_2026": 164,
+    "mean_resistance_m_s": 7.542,
+    "std_resistance_m_s": 2.484,
+    "eb_resistance_m_s": 7.538
+  },
+  "1630": {
+    "name": "Petr Saleny",
+    "latest_rating": 892.0,
+    "total_matches_2026": 295,
+    "mean_resistance_m_s": 7.249,
+    "std_resistance_m_s": 2.707,
+    "eb_resistance_m_s": 7.258
+  },
+  "1698": {
+    "name": "Jan Srba",
+    "latest_rating": 421.0,
+    "total_matches_2026": 40,
+    "mean_resistance_m_s": 6.955,
+    "std_resistance_m_s": 2.538,
+    "eb_resistance_m_s": 7.083
+  },
+  "1660": {
+    "name": "Jiri Stary",
+    "latest_rating": 209.0,
+    "total_matches_2026": 80,
+    "mean_resistance_m_s": 7.276,
+    "std_resistance_m_s": 2.578,
+    "eb_resistance_m_s": 7.303
+  },
+  "1837": {
+    "name": "Jan Bernat",
+    "latest_rating": 592.0,
+    "total_matches_2026": 49,
+    "mean_resistance_m_s": 7.166,
+    "std_resistance_m_s": 2.266,
+    "eb_resistance_m_s": 7.234
+  },
+  "1732": {
+    "name": "Jan Hrabec",
+    "latest_rating": 635.0,
+    "total_matches_2026": 195,
+    "mean_resistance_m_s": 7.325,
+    "std_resistance_m_s": 2.626,
+    "eb_resistance_m_s": 7.334
+  },
+  "1836": {
+    "name": "Filip Jungman",
+    "latest_rating": 677.0,
+    "total_matches_2026": 179,
+    "mean_resistance_m_s": 7.288,
+    "std_resistance_m_s": 2.492,
+    "eb_resistance_m_s": 7.3
+  },
+  "1729": {
+    "name": "Stepan Kysely",
+    "latest_rating": 718.0,
+    "total_matches_2026": 93,
+    "mean_resistance_m_s": 7.401,
+    "std_resistance_m_s": 2.604,
+    "eb_resistance_m_s": 7.411
+  },
+  "1838": {
+    "name": "Martin Polivka",
+    "latest_rating": 827.0,
+    "total_matches_2026": 84,
+    "mean_resistance_m_s": 7.325,
+    "std_resistance_m_s": 2.753,
+    "eb_resistance_m_s": 7.346
+  },
+  "1728": {
+    "name": "Jakub Simecek",
+    "latest_rating": 772.0,
+    "total_matches_2026": 260,
+    "mean_resistance_m_s": 7.755,
+    "std_resistance_m_s": 2.521,
+    "eb_resistance_m_s": 7.743
+  },
+  "1839": {
+    "name": "Jan Simecek",
+    "latest_rating": 984.0,
+    "total_matches_2026": 235,
+    "mean_resistance_m_s": 7.265,
+    "std_resistance_m_s": 2.545,
+    "eb_resistance_m_s": 7.276
+  },
+  "1733": {
+    "name": "Zdenek Luksa",
+    "latest_rating": 400.0,
+    "total_matches_2026": 139,
+    "mean_resistance_m_s": 7.492,
+    "std_resistance_m_s": 2.491,
+    "eb_resistance_m_s": 7.491
+  },
+  "1840": {
+    "name": "Roman Bednar",
+    "latest_rating": 441.0,
+    "total_matches_2026": 28,
+    "mean_resistance_m_s": 7.526,
+    "std_resistance_m_s": 2.637,
+    "eb_resistance_m_s": 7.512
+  },
+  "1822": {
+    "name": "Radim Kvasnicka",
+    "latest_rating": 548.0,
+    "total_matches_2026": 108,
+    "mean_resistance_m_s": 7.336,
+    "std_resistance_m_s": 2.561,
+    "eb_resistance_m_s": 7.35
+  },
+  "1780": {
+    "name": "Vojtech Kocian",
+    "latest_rating": 438.0,
+    "total_matches_2026": 172,
+    "mean_resistance_m_s": 7.378,
+    "std_resistance_m_s": 2.427,
+    "eb_resistance_m_s": 7.385
+  },
+  "680": {
+    "name": "Frantisek Pusch",
+    "latest_rating": 944.0,
+    "total_matches_2026": 167,
+    "mean_resistance_m_s": 7.341,
+    "std_resistance_m_s": 2.542,
+    "eb_resistance_m_s": 7.35
+  },
+  "1841": {
+    "name": "Vlastimil Kolar",
+    "latest_rating": 915.0,
+    "total_matches_2026": 193,
+    "mean_resistance_m_s": 7.346,
+    "std_resistance_m_s": 2.484,
+    "eb_resistance_m_s": 7.354
+  },
+  "700": {
+    "name": "Martin Parizek",
+    "latest_rating": 1060.0,
+    "total_matches_2026": 76,
+    "mean_resistance_m_s": 7.599,
+    "std_resistance_m_s": 2.456,
+    "eb_resistance_m_s": 7.583
+  },
+  "1744": {
+    "name": "Michal Derco",
+    "latest_rating": 384.0,
+    "total_matches_2026": 96,
+    "mean_resistance_m_s": 7.384,
+    "std_resistance_m_s": 2.733,
+    "eb_resistance_m_s": 7.395
+  },
+  "1755": {
+    "name": "Stanislav Mareda",
+    "latest_rating": 292.0,
+    "total_matches_2026": 8,
+    "mean_resistance_m_s": 7.062,
+    "std_resistance_m_s": 2.344,
+    "eb_resistance_m_s": 7.317
+  },
+  "1844": {
+    "name": "Miroslav Kowolowski",
+    "latest_rating": 614.0,
+    "total_matches_2026": 312,
+    "mean_resistance_m_s": 7.101,
+    "std_resistance_m_s": 2.545,
+    "eb_resistance_m_s": 7.115
+  },
+  "1842": {
+    "name": "Pavel Vyvial",
+    "latest_rating": 538.0,
+    "total_matches_2026": 24,
+    "mean_resistance_m_s": 6.798,
+    "std_resistance_m_s": 2.404,
+    "eb_resistance_m_s": 7.043
+  },
+  "1843": {
+    "name": "Vladimir Adamczyk",
+    "latest_rating": 710.0,
+    "total_matches_2026": 232,
+    "mean_resistance_m_s": 7.582,
+    "std_resistance_m_s": 2.397,
+    "eb_resistance_m_s": 7.577
+  },
+  "1845": {
+    "name": "Petr Banot",
+    "latest_rating": 415.0,
+    "total_matches_2026": 132,
+    "mean_resistance_m_s": 7.493,
+    "std_resistance_m_s": 2.387,
+    "eb_resistance_m_s": 7.492
+  },
+  "1175": {
+    "name": "Tomas Navrat",
+    "latest_rating": 390.0,
+    "total_matches_2026": 68,
+    "mean_resistance_m_s": 7.798,
+    "std_resistance_m_s": 2.449,
+    "eb_resistance_m_s": 7.749
+  },
+  "1817": {
+    "name": "Vojtech Cerny",
+    "latest_rating": 665.0,
+    "total_matches_2026": 99,
+    "mean_resistance_m_s": 7.332,
+    "std_resistance_m_s": 2.525,
+    "eb_resistance_m_s": 7.349
+  },
+  "1779": {
+    "name": "Vlastimil Matysek",
+    "latest_rating": 304.0,
+    "total_matches_2026": 16,
+    "mean_resistance_m_s": 7.232,
+    "std_resistance_m_s": 2.535,
+    "eb_resistance_m_s": 7.349
+  },
+  "1177": {
+    "name": "Marek Volny",
+    "latest_rating": 671.0,
+    "total_matches_2026": 191,
+    "mean_resistance_m_s": 7.347,
+    "std_resistance_m_s": 2.466,
+    "eb_resistance_m_s": 7.355
+  },
+  "1846": {
+    "name": "Jan Kantor",
+    "latest_rating": 715.0,
+    "total_matches_2026": 16,
+    "mean_resistance_m_s": 7.294,
+    "std_resistance_m_s": 2.339,
+    "eb_resistance_m_s": 7.373
+  },
+  "1847": {
+    "name": "Martin Skakal",
+    "latest_rating": 914.0,
+    "total_matches_2026": 190,
+    "mean_resistance_m_s": 7.383,
+    "std_resistance_m_s": 2.611,
+    "eb_resistance_m_s": 7.389
+  },
+  "1532": {
+    "name": "Libor Jemelka",
+    "latest_rating": 554.0,
+    "total_matches_2026": 88,
+    "mean_resistance_m_s": 7.201,
+    "std_resistance_m_s": 2.387,
+    "eb_resistance_m_s": 7.237
+  },
+  "1793": {
+    "name": "Marcel Proksa",
+    "latest_rating": 300.0,
+    "total_matches_2026": 24,
+    "mean_resistance_m_s": 7.319,
+    "std_resistance_m_s": 2.618,
+    "eb_resistance_m_s": 7.375
+  },
+  "1798": {
+    "name": "David Zigmund",
+    "latest_rating": 368.0,
+    "total_matches_2026": 16,
+    "mean_resistance_m_s": 7.141,
+    "std_resistance_m_s": 2.171,
+    "eb_resistance_m_s": 7.281
+  },
+  "1745": {
+    "name": "Petr Romba",
+    "latest_rating": 300.0,
+    "total_matches_2026": 28,
+    "mean_resistance_m_s": 7.303,
+    "std_resistance_m_s": 2.34,
+    "eb_resistance_m_s": 7.358
+  },
+  "1700": {
+    "name": "Vojtech Stach",
+    "latest_rating": 386.0,
+    "total_matches_2026": 139,
+    "mean_resistance_m_s": 7.153,
+    "std_resistance_m_s": 2.605,
+    "eb_resistance_m_s": 7.18
+  },
+  "1848": {
+    "name": "Evald Gebek",
+    "latest_rating": 596.0,
+    "total_matches_2026": 84,
+    "mean_resistance_m_s": 7.309,
+    "std_resistance_m_s": 2.547,
+    "eb_resistance_m_s": 7.331
+  },
+  "718": {
+    "name": "Tomas Holik",
+    "latest_rating": 802.0,
+    "total_matches_2026": 60,
+    "mean_resistance_m_s": 7.508,
+    "std_resistance_m_s": 2.732,
+    "eb_resistance_m_s": 7.503
+  },
+  "1794": {
+    "name": "Petr Solansky",
+    "latest_rating": 724.0,
+    "total_matches_2026": 20,
+    "mean_resistance_m_s": 7.487,
+    "std_resistance_m_s": 2.381,
+    "eb_resistance_m_s": 7.484
+  },
+  "1767": {
+    "name": "Lukas Martinec",
+    "latest_rating": 296.0,
+    "total_matches_2026": 44,
+    "mean_resistance_m_s": 7.384,
+    "std_resistance_m_s": 2.383,
+    "eb_resistance_m_s": 7.405
+  },
+  "1849": {
+    "name": "Jan Zvrtek",
+    "latest_rating": 725.0,
+    "total_matches_2026": 33,
+    "mean_resistance_m_s": 7.511,
+    "std_resistance_m_s": 2.341,
+    "eb_resistance_m_s": 7.503
+  },
+  "1825": {
+    "name": "Pavel Potmesil",
+    "latest_rating": 244.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.357,
+    "std_resistance_m_s": 2.427,
+    "eb_resistance_m_s": 7.38
+  },
+  "1248": {
+    "name": "David Mutl",
+    "latest_rating": 387.0,
+    "total_matches_2026": 154,
+    "mean_resistance_m_s": 7.201,
+    "std_resistance_m_s": 2.481,
+    "eb_resistance_m_s": 7.223
+  },
+  "1379": {
+    "name": "Pavel Wawrosz",
+    "latest_rating": 1049.0,
+    "total_matches_2026": 475,
+    "mean_resistance_m_s": 7.257,
+    "std_resistance_m_s": 2.353,
+    "eb_resistance_m_s": 7.262
+  },
+  "1850": {
+    "name": "Filip Wolf",
+    "latest_rating": 1013.0,
+    "total_matches_2026": 212,
+    "mean_resistance_m_s": 7.364,
+    "std_resistance_m_s": 2.613,
+    "eb_resistance_m_s": 7.371
+  },
+  "1851": {
+    "name": "Jakub Mikeska",
+    "latest_rating": 766.0,
+    "total_matches_2026": 32,
+    "mean_resistance_m_s": 7.518,
+    "std_resistance_m_s": 2.327,
+    "eb_resistance_m_s": 7.508
+  },
+  "1852": {
+    "name": "Zbynek Drabek",
+    "latest_rating": 494.0,
+    "total_matches_2026": 107,
+    "mean_resistance_m_s": 7.138,
+    "std_resistance_m_s": 2.358,
+    "eb_resistance_m_s": 7.173
+  },
+  "871": {
+    "name": "Jaroslav Vanek",
+    "latest_rating": 702.0,
+    "total_matches_2026": 12,
+    "mean_resistance_m_s": 7.264,
+    "std_resistance_m_s": 2.275,
+    "eb_resistance_m_s": 7.369
+  },
+  "1853": {
+    "name": "Radek Adamczyk",
+    "latest_rating": 421.0,
+    "total_matches_2026": 104,
+    "mean_resistance_m_s": 7.465,
+    "std_resistance_m_s": 2.619,
+    "eb_resistance_m_s": 7.467
+  },
+  "1292": {
+    "name": "Vaclav Nohejl",
+    "latest_rating": 581.0,
+    "total_matches_2026": 144,
+    "mean_resistance_m_s": 7.42,
+    "std_resistance_m_s": 2.429,
+    "eb_resistance_m_s": 7.425
+  },
+  "1854": {
+    "name": "Marek Bereiter",
+    "latest_rating": 788.0,
+    "total_matches_2026": 68,
+    "mean_resistance_m_s": 7.544,
+    "std_resistance_m_s": 2.531,
+    "eb_resistance_m_s": 7.534
+  },
+  "1855": {
+    "name": "Tomas Kypr",
+    "latest_rating": 841.0,
+    "total_matches_2026": 134,
+    "mean_resistance_m_s": 7.433,
+    "std_resistance_m_s": 2.644,
+    "eb_resistance_m_s": 7.437
+  },
+  "999": {
+    "name": "Pavel Chovanec",
+    "latest_rating": 634.0,
+    "total_matches_2026": 56,
+    "mean_resistance_m_s": 7.389,
+    "std_resistance_m_s": 2.483,
+    "eb_resistance_m_s": 7.406
+  },
+  "1585": {
+    "name": "Pavel Stuchlik",
+    "latest_rating": 479.0,
+    "total_matches_2026": 92,
+    "mean_resistance_m_s": 7.336,
+    "std_resistance_m_s": 2.454,
+    "eb_resistance_m_s": 7.353
+  },
+  "838": {
+    "name": "Kamil Hruda",
+    "latest_rating": 397.0,
+    "total_matches_2026": 4,
+    "mean_resistance_m_s": 8.438,
+    "std_resistance_m_s": 2.715,
+    "eb_resistance_m_s": 7.712
+  },
+  "1856": {
+    "name": "Tomas Vantuch",
+    "latest_rating": 349.0,
+    "total_matches_2026": 24,
+    "mean_resistance_m_s": 7.211,
+    "std_resistance_m_s": 2.271,
+    "eb_resistance_m_s": 7.303
+  },
+  "1857": {
+    "name": "Adam Jancak",
+    "latest_rating": 345.0,
+    "total_matches_2026": 8,
+    "mean_resistance_m_s": 7.548,
+    "std_resistance_m_s": 1.775,
+    "eb_resistance_m_s": 7.506
+  },
+  "1675": {
+    "name": "Lukas Krejcik",
+    "latest_rating": 682.0,
+    "total_matches_2026": 40,
+    "mean_resistance_m_s": 7.365,
+    "std_resistance_m_s": 2.212,
+    "eb_resistance_m_s": 7.394
+  },
+  "1858": {
+    "name": "Patrik Hanel",
+    "latest_rating": 593.0,
+    "total_matches_2026": 132,
+    "mean_resistance_m_s": 7.408,
+    "std_resistance_m_s": 2.575,
+    "eb_resistance_m_s": 7.414
+  },
+  "1859": {
+    "name": "Jan Framberk",
+    "latest_rating": 514.0,
+    "total_matches_2026": 172,
+    "mean_resistance_m_s": 7.325,
+    "std_resistance_m_s": 2.574,
+    "eb_resistance_m_s": 7.336
+  },
+  "1860": {
+    "name": "Dmytro Opanasiuk",
+    "latest_rating": 1030.0,
+    "total_matches_2026": 319,
+    "mean_resistance_m_s": 7.457,
+    "std_resistance_m_s": 2.62,
+    "eb_resistance_m_s": 7.458
+  },
+  "1861": {
+    "name": "Miloslav Hubka",
+    "latest_rating": 298.0,
+    "total_matches_2026": 48,
+    "mean_resistance_m_s": 7.215,
+    "std_resistance_m_s": 2.511,
+    "eb_resistance_m_s": 7.27
+  },
+  "1862": {
+    "name": "Martin Novak",
+    "latest_rating": 546.0,
+    "total_matches_2026": 74,
+    "mean_resistance_m_s": 7.47,
+    "std_resistance_m_s": 2.482,
+    "eb_resistance_m_s": 7.471
+  },
+  "1057": {
+    "name": "Jakub Plachta",
+    "latest_rating": 985.0,
+    "total_matches_2026": 72,
+    "mean_resistance_m_s": 7.392,
+    "std_resistance_m_s": 2.655,
+    "eb_resistance_m_s": 7.405
+  },
+  "755": {
+    "name": "Martin Bittner",
+    "latest_rating": 816.0,
+    "total_matches_2026": 78,
+    "mean_resistance_m_s": 7.422,
+    "std_resistance_m_s": 2.543,
+    "eb_resistance_m_s": 7.43
+  },
+  "1864": {
+    "name": "Daniel Langer",
+    "latest_rating": 775.0,
+    "total_matches_2026": 200,
+    "mean_resistance_m_s": 7.218,
+    "std_resistance_m_s": 2.49,
+    "eb_resistance_m_s": 7.233
+  },
+  "1865": {
+    "name": "Matej Szwarc",
+    "latest_rating": 978.0,
+    "total_matches_2026": 56,
+    "mean_resistance_m_s": 7.785,
+    "std_resistance_m_s": 2.527,
+    "eb_resistance_m_s": 7.73
+  },
+  "1866": {
+    "name": "Alfred Rinka",
+    "latest_rating": 725.0,
+    "total_matches_2026": 80,
+    "mean_resistance_m_s": 7.38,
+    "std_resistance_m_s": 2.377,
+    "eb_resistance_m_s": 7.393
+  },
+  "1763": {
+    "name": "Jaroslav Peter",
+    "latest_rating": 537.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.329,
+    "std_resistance_m_s": 2.409,
+    "eb_resistance_m_s": 7.358
+  },
+  "1425": {
+    "name": "Petr Zmuda",
+    "latest_rating": 744.0,
+    "total_matches_2026": 220,
+    "mean_resistance_m_s": 7.332,
+    "std_resistance_m_s": 2.483,
+    "eb_resistance_m_s": 7.34
+  },
+  "1342": {
+    "name": "Miroslav Necas",
+    "latest_rating": 536.0,
+    "total_matches_2026": 50,
+    "mean_resistance_m_s": 7.338,
+    "std_resistance_m_s": 2.723,
+    "eb_resistance_m_s": 7.367
+  },
+  "1716": {
+    "name": "Ondrej Kysely",
+    "latest_rating": 784.0,
+    "total_matches_2026": 43,
+    "mean_resistance_m_s": 7.257,
+    "std_resistance_m_s": 2.617,
+    "eb_resistance_m_s": 7.308
+  },
+  "1750": {
+    "name": "Adam Kudelka",
+    "latest_rating": 611.0,
+    "total_matches_2026": 42,
+    "mean_resistance_m_s": 7.627,
+    "std_resistance_m_s": 2.563,
+    "eb_resistance_m_s": 7.593
+  },
+  "1869": {
+    "name": "Richard Wagner",
+    "latest_rating": 940.0,
+    "total_matches_2026": 237,
+    "mean_resistance_m_s": 7.353,
+    "std_resistance_m_s": 2.418,
+    "eb_resistance_m_s": 7.36
+  },
+  "1870": {
+    "name": "Vaclav Rybar",
+    "latest_rating": 416.0,
+    "total_matches_2026": 52,
+    "mean_resistance_m_s": 7.024,
+    "std_resistance_m_s": 2.261,
+    "eb_resistance_m_s": 7.112
+  },
+  "1871": {
+    "name": "Jan Kucharcik",
+    "latest_rating": 536.0,
+    "total_matches_2026": 16,
+    "mean_resistance_m_s": 7.857,
+    "std_resistance_m_s": 2.336,
+    "eb_resistance_m_s": 7.69
+  },
+  "1872": {
+    "name": "Jan Trefny",
+    "latest_rating": 731.0,
+    "total_matches_2026": 155,
+    "mean_resistance_m_s": 7.231,
+    "std_resistance_m_s": 2.398,
+    "eb_resistance_m_s": 7.25
+  },
+  "1873": {
+    "name": "Mark Wagner",
+    "latest_rating": 907.0,
+    "total_matches_2026": 206,
+    "mean_resistance_m_s": 7.566,
+    "std_resistance_m_s": 2.578,
+    "eb_resistance_m_s": 7.561
+  },
+  "1874": {
+    "name": "Milan Langer",
+    "latest_rating": 853.0,
+    "total_matches_2026": 16,
+    "mean_resistance_m_s": 6.932,
+    "std_resistance_m_s": 2.609,
+    "eb_resistance_m_s": 7.183
+  },
+  "814": {
+    "name": "Zdenek Kasinski",
+    "latest_rating": 367.0,
+    "total_matches_2026": 56,
+    "mean_resistance_m_s": 6.864,
+    "std_resistance_m_s": 2.583,
+    "eb_resistance_m_s": 6.978
+  },
+  "1875": {
+    "name": "Frantisek Nadymacek",
+    "latest_rating": 918.0,
+    "total_matches_2026": 64,
+    "mean_resistance_m_s": 7.323,
+    "std_resistance_m_s": 2.406,
+    "eb_resistance_m_s": 7.349
+  },
+  "1614": {
+    "name": "Andrii Tkachenko",
+    "latest_rating": 324.0,
+    "total_matches_2026": 44,
+    "mean_resistance_m_s": 7.287,
+    "std_resistance_m_s": 2.409,
+    "eb_resistance_m_s": 7.332
+  },
+  "1876": {
+    "name": "Jakub Hutnik",
+    "latest_rating": 794.0,
+    "total_matches_2026": 44,
+    "mean_resistance_m_s": 7.209,
+    "std_resistance_m_s": 2.639,
+    "eb_resistance_m_s": 7.272
+  },
+  "1877": {
+    "name": "David Sidletskyi",
+    "latest_rating": 853.0,
+    "total_matches_2026": 20,
+    "mean_resistance_m_s": 7.075,
+    "std_resistance_m_s": 2.339,
+    "eb_resistance_m_s": 7.231
+  },
+  "749": {
+    "name": "Jan Svoboda",
+    "latest_rating": 788.0,
+    "total_matches_2026": 36,
+    "mean_resistance_m_s": 7.214,
+    "std_resistance_m_s": 2.32,
+    "eb_resistance_m_s": 7.282
+  },
+  "818": {
+    "name": "Marek Sedlak",
+    "latest_rating": 701.0,
+    "total_matches_2026": 51,
+    "mean_resistance_m_s": 7.425,
+    "std_resistance_m_s": 2.523,
+    "eb_resistance_m_s": 7.436
+  },
+  "1878": {
+    "name": "Oliver Hradil",
+    "latest_rating": 673.0,
+    "total_matches_2026": 28,
+    "mean_resistance_m_s": 7.092,
+    "std_resistance_m_s": 2.446,
+    "eb_resistance_m_s": 7.207
+  },
+  "1452": {
+    "name": "Zdenek Zikmunda",
+    "latest_rating": 492.0,
+    "total_matches_2026": 39,
+    "mean_resistance_m_s": 7.5,
+    "std_resistance_m_s": 2.381,
+    "eb_resistance_m_s": 7.495
+  },
+  "1879": {
+    "name": "Petr Slavik",
+    "latest_rating": 716.0,
+    "total_matches_2026": 16,
+    "mean_resistance_m_s": 7.197,
+    "std_resistance_m_s": 2.216,
+    "eb_resistance_m_s": 7.324
+  },
+  "1762": {
+    "name": "Pavel Kalvar",
+    "latest_rating": 509.0,
+    "total_matches_2026": 8,
+    "mean_resistance_m_s": 7.647,
+    "std_resistance_m_s": 2.235,
+    "eb_resistance_m_s": 7.548
+  },
+  "1095": {
+    "name": "Rostislav Niezgoda",
+    "latest_rating": 1087.0,
+    "total_matches_2026": 40,
+    "mean_resistance_m_s": 7.473,
+    "std_resistance_m_s": 2.696,
+    "eb_resistance_m_s": 7.474
+  },
+  "1646": {
+    "name": "Patrik Klusacek",
+    "latest_rating": 655.0,
+    "total_matches_2026": 27,
+    "mean_resistance_m_s": 7.504,
+    "std_resistance_m_s": 2.641,
+    "eb_resistance_m_s": 7.497
+  },
+  "1262": {
+    "name": "Zdenek Balusek",
+    "latest_rating": 450.0,
+    "total_matches_2026": 4,
+    "mean_resistance_m_s": 7.688,
+    "std_resistance_m_s": 1.488,
+    "eb_resistance_m_s": 7.53
+  },
+  "1912": {
+    "name": "Daniel Ondryas",
+    "latest_rating": 1000.0,
+    "total_matches_2026": 4,
+    "mean_resistance_m_s": 7.714,
+    "std_resistance_m_s": 2.403,
+    "eb_resistance_m_s": 7.531
+  },
+  "1423": {
+    "name": "Martin Vilhan",
+    "latest_rating": 516.0,
+    "total_matches_2026": 8,
+    "mean_resistance_m_s": 8.188,
+    "std_resistance_m_s": 2.242,
+    "eb_resistance_m_s": 7.756
+  }
+}
