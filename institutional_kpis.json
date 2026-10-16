@@ -1,0 +1,15 @@
+{
+  "updated_at_utc": "2026-10-16T11:47:13Z",
+  "current_balance_usd": 105.99,
+  "peak_balance_usd": 105.99,
+  "total_settled_picks": 3,
+  "active_pending_picks": 0,
+  "wins": 3,
+  "losses": 0,
+  "strike_rate_pct": 100.0,
+  "total_volume_usd": 8.65,
+  "net_profit_usd": 5.99,
+  "roi_yield_pct": 69.25,
+  "profit_factor": 99.9,
+  "max_drawdown_pct": 0.0
+}

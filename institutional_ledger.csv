@@ -1,0 +1,4 @@
+match_id,timestamp_utc,players,motor,state_desc,selection,odds,stake_usd,actual_points,result,pnl_usd,balance_after
+315741,2026-10-16T09:36:03Z,Jan Steffan vs Rostislav Hasmanda,Motor 2A F11.1 (OVER ÉLITE),Set 1 Deuce: 10-12 (22 pts),Más de 72.5 Puntos,1.62,3.0,74,GANADA,1.86,101.86
+315711,2026-10-16T10:39:15Z,Ondrej Paril vs Radomir Revay,Motor 2A F11.1 (OVER ÉLITE),Set 1 Deuce: 13-11 (24 pts),Más de 74.5 Puntos,1.62,3.06,75,GANADA,1.9,103.76
+315669,2026-10-16T11:38:59Z,Pavel Potmesil vs Andrii Tkachenko,Motor 1B F11.1 (UNDER 2-0 CERRADO),"Marcador 2-0 Cerrado: 5-11, 10-12 (38 pts)",Menos de 69.5 Puntos,1.86,2.59,54,GANADA,2.23,105.99
