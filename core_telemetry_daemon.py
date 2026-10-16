@@ -3,13 +3,10 @@
 ========================================================================================
 CORE TELEMETRY DAEMON — SPORTS ORACLE LIVE PRODUCTION SERVER (F11.1)
 ========================================================================================
-Integra:
-1. Scraper Antibloqueo con rotación de 3 tokens y jitter humano (API League-Pro).
-2. Auto-Catchup Causal: Rellena cualquier hueco desde el 6 de oct hasta el segundo actual.
-3. Motor F11.1 (Motor 2A Tight Deuce Over @1.62 + Motor 1B Deceptive Under @1.86).
-4. Vigilancia Francotirador en Vivo cada 15s (detecta cierre exacto de Set 1 y Set 2).
-5. Alertas instantáneas por Correo Electrónico (SMTP) y Telegram.
-6. Juez Liquidador Automático (cada 30 min) y Libros Institucionales (Ledger, Equity, KPIs).
+- Logs en tiempo real (unbuffered) de cada barrido y cada mesa en vivo.
+- Identificación exacta de Torneo, Fase (Group/Final), Match ID y Hora Inicio (Cuba/UTC).
+- Notificación automática a Telegram al disparar el pick Y al liquidar el resultado final.
+- Cierre limpio a los 195 minutos para evitar cancelaciones por timeout en GitHub Actions.
 ========================================================================================
 """
 
@@ -21,6 +18,7 @@ import math
 import os
 import random
 import smtplib
+import sys
 import time
 import urllib.error
 import urllib.request
@@ -30,9 +28,9 @@ from email.mime.text import MIMEText
 from typing import Dict, List, Tuple, Optional, Any
 import numpy as np
 
-# ======================================================================================
-# 1. TOKENS Y CONFIGURACIÓN DE RED ANTIBLOQUEO
-# ======================================================================================
+# Forzar salida inmediata en consola para GitHub Actions
+sys.stdout.reconfigure(line_buffering=True)
+
 DEFAULT_TOKENS = [
     "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzMyMDMiLCJpc3MiOiJsaWdhX3Byb19jel9iYWNrZW5kIiwiZXhwIjoxNzkzNzkzNzUxLCJpYXQiOjE3OTEyMDE3NTEsImp0aSI6ImE4OTFiOGIwYzExMzQzOTM5NjEzYTI5MjJmYWIzZjYyIiwiYXVkIjpbImxpZ2FfcHJvX2N6Il0sInVzZXJfaWQiOjMyMDMsInJvbGVzIjpbMl19.PCOxG8COAR4WrAVMPCn2ue0jh5NZziQiTwB39FwMSXARIgAfRxLtD2OE_ET-bfhnGA4PzWc6ufHgBJ9SXSMbSe7s5S4a3kdyN_Me_F--WLDQ0Efr9-DFRW4CibzDNIjhcUPhssvdK7JXYvcf71oEwWZavZcXcPLGU2EmSDreMkYpge56_7BiwH3qESBOt39sVHmAI_pf02Q4_md0SnyVOIB0iU7zG00tJh-ma53LIwXPsb22G-AvjaGh1J7KCBOKdjUfSvV9jHqT08tXvRCJRjA4hAvDDx4rkcYWcvDAldQ9ndvD9wql84F_B2uaRaetNVNGasZ0P2Vgt0xxT1xcngdgiKXa_Yv7SbJg5Bq6kDSjVfFlbXTIhpGjHzvahu4nQBCK9e89zpPZ2FcdEUzh__k3CcEsAvUyriQjSRtCiW5h9jUAmETwueZDa4FfMHzUoNAYx9bYZNzdeQXwhmv20AlQQvZGVIcBnsgwMnCz6YIqg6h3RtB4-9eIpvGdv02XGl4vGX4g342oZphWGJQOhV4XL4aF571j_RmonecSbFNqPcAKXIpmbXzYZJI7c26RDZtwS7ztDVpysEt2whc7dK8TWchj9liEkA4iy5hl3gYv3XE4kNvDU-2FgL5E71aeW4AzE_FTYPHjOh0QHM4AZJ_FZG64EY5mcEAiayD2XUk",
     "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzMyMDQiLCJpc3MiOiJsaWdhX3Byb19jel9iYWNrZW5kIiwiZXhwIjoxNzkzNzk0MDU1LCJpYXQiOjE3OTEyMDIwNTUsImp0aSI6Ijg0NjAzNmEzNTdjODRkMTA4ZTdkZWQ5NWNkZTRiNGZmIiwiYXVkIjpbImxpZ2FfcHJvX2N6Il0sInVzZXJfaWQiOjMyMDQsInJvbGVzIjpbMl19.anwTv8jH1821iIfgcUuxCWx0aWIWAn7zc0j1qJPoZl-NrVdfY27Au1Jpgb9YSiRGhCUtoMm3dULJckbgWSmD3EWyIN2IavInAudienr7Sr6zcN6HzpLr1XFKwciYPW77ZYMSYkgfTrWoSt9vPymmzcjVtR-CaxlEFtkSuY4MTu71UtiI8yY4AowlgoBzqFkRYz1eB5z4dilGpgYXqMw1ZPX7ErrYw_yUxQEOWyoK_L2mygQIgcuwdDuZWqNlJyWAJXjsA8XnNamXIJNM_ru0Ky3glSkoLnl_mkAp7jyxN_eXrZdY6iLvWcNGxOlrDKh5MtayEl6vbT50wNtc4-4ywGgNGW4cKAYM5xQ7jAOpwhY_TKHg6JJcDFPhal-vZ4--oY7mBzB49vl-ghblYeg36hOAMgHAyk6m72YoosbUW0aUKmas6dXE4APLG92W-kcJu_wk09i-yFZZ4mPGABnA4h1b6s5NAavDC6qbXB5QKsy28l9AqmP3W-RQZdbCnAhmXnUVd8ZyCOVPo73jE7G_npxioRgza5RYS6h15ju9m9gpiFAh3qVmi4nnsp7GKc8viD4hr2Yvg2gB5LoT_X8SD5Ktq2iTCfjll3HOiIU_BdNvcjUaQMdT3uhIGJKCmXZPPXfkGWWpglOWr-nscG4stQS5kdMuifjwJ-eF4s2kVsw",
@@ -61,7 +59,7 @@ def get_headers() -> Dict[str, str]:
     }
 
 
-def api_get_json(url: str, min_delay: float = 0.45, max_delay: float = 0.85) -> Optional[Dict[str, Any]]:
+def api_get_json(url: str, min_delay: float = 0.40, max_delay: float = 0.75) -> Optional[Dict[str, Any]]:
     time.sleep(random.uniform(min_delay, max_delay))
     for attempt in range(4):
         try:
@@ -85,9 +83,17 @@ def api_get_json(url: str, min_delay: float = 0.45, max_delay: float = 0.85) -> 
     return None
 
 
-# ======================================================================================
-# 2. PARÁMETROS MAESTROS DEL MOTOR F11.1
-# ======================================================================================
+def format_match_times(iso_str: str) -> str:
+    if not iso_str:
+        return "N/A"
+    try:
+        dt_utc = datetime.fromisoformat(iso_str.replace("Z", "+00:00"))
+        dt_cuba = dt_utc - timedelta(hours=4)
+        return f"{dt_cuba.strftime('%I:%M %p')} Cuba ({dt_utc.strftime('%H:%M')} UTC)"
+    except Exception:
+        return iso_str
+
+
 CONFIG = {
     "m2a": {
         "min_x1_deuce": 22,
@@ -127,19 +133,14 @@ CONFIG = {
         "initial_bankroll_usd": float(os.environ.get("INITIAL_BANKROLL", "100.0")),
         "table_liquidity_cap_usd": 180.0,
         "min_bet_usd": 1.0,
-        "settlement_window_minutes": 30,
     },
 }
 
 STATE_FILE = "oracle_live_state.json"
 LEDGER_CSV = "institutional_ledger.csv"
-EQUITY_CSV = "equity_curve.csv"
 KPIS_JSON = "institutional_kpis.json"
 
 
-# ======================================================================================
-# 3. TRACKER CAUSAL POINT-IN-TIME (CON SOPORTE DE BÓVEDA .TAR.GZ Y PERSISTENCIA)
-# ======================================================================================
 class CausalPITTracker:
     def __init__(self, eb_prior_m: float = 7.48, eb_weight: float = 50.0):
         self.eb_prior_m = eb_prior_m
@@ -251,7 +252,6 @@ class CausalPITTracker:
                 ms = float(min(pt1, pt2))
                 self.player_loss_points[p1_id].append(ms)
                 self.player_loss_points[p2_id].append(ms)
-        # Mantener últimos 50 sets para eficiencia en disco
         self.player_loss_points[p1_id] = self.player_loss_points[p1_id][-50:]
         self.player_loss_points[p2_id] = self.player_loss_points[p2_id][-50:]
 
@@ -259,9 +259,6 @@ class CausalPITTracker:
             self.last_synced_utc = match_date_utc
 
 
-# ======================================================================================
-# 4. MOTOR CUANTITATIVO UNIVERSAL F11.1
-# ======================================================================================
 class UniversalPhysicsEngine:
     def __init__(self, config: Dict[str, Any] = CONFIG):
         self.cfg = config
@@ -328,8 +325,10 @@ class UniversalPhysicsEngine:
         x1 = p1_s1 + p2_s1
         abs_dr = abs(r1 - r2)
         c = self.m2a_cfg
-        if x1 < c["min_x1_deuce"] or abs_dr > c["max_abs_delta_rating"]:
-            return {"action": "NO_BET"}
+        if x1 < c["min_x1_deuce"]:
+            return {"action": "NO_BET", "reason": f"No Deuce ({p1_s1}-{p2_s1}, {x1} pts)"}
+        if abs_dr > c["max_abs_delta_rating"]:
+            return {"action": "NO_BET", "reason": f"|Delta Rating|={abs_dr:.0f} > 25"}
 
         s1_winner = p1_id if p1_s1 > p2_s1 else p2_id
         s1_loser = p2_id if p1_s1 > p2_s1 else p1_id
@@ -383,12 +382,12 @@ class UniversalPhysicsEngine:
         s2_w = p1_s2 > p2_s2
         is_2_0 = (s1_w and s2_w) or ((not s1_w) and (not s2_w))
         if not is_2_0:
-            return {"action": "NO_BET"}
+            return {"action": "NO_BET", "reason": "Empate 1-1 en sets"}
 
         x12 = p1_s1 + p2_s1 + p1_s2 + p2_s2
         c = self.m1b_cfg
         if not (c["x12_min"] <= x12 <= c["x12_max"]):
-            return {"action": "NO_BET"}
+            return {"action": "NO_BET", "reason": f"X12={x12} fuera de [38, 44]"}
 
         leader_is_p1 = s1_w and s2_w
         leader_r = r1 if leader_is_p1 else r2
@@ -396,12 +395,12 @@ class UniversalPhysicsEngine:
         trailer_id = p2_id if leader_is_p1 else p1_id
 
         if trailer_r > leader_r:
-            return {"action": "NO_BET"}
+            return {"action": "NO_BET", "reason": f"Perseguidor favorito ({trailer_r:.0f} > {leader_r:.0f})"}
 
         h2h_n, _, _, wr_p1 = tracker.get_h2h_stats(p1_id, p2_id)
         wr_trailer = (1.0 - wr_p1) if leader_is_p1 else wr_p1
         if h2h_n >= 3 and wr_trailer > c["max_trailer_h2h_wr"]:
-            return {"action": "NO_BET"}
+            return {"action": "NO_BET", "reason": f"H2H perseguidor alto ({wr_trailer*100:.1f}% > 35%)"}
 
         mu_trailer, _, _ = tracker.get_resistance_profile(trailer_id)
         logit_1b = (
@@ -430,15 +429,11 @@ class UniversalPhysicsEngine:
         }
 
 
-# ======================================================================================
-# 5. ALERTAS EN VIVO (CORREO SMTP + TELEGRAM)
-# ======================================================================================
 def send_live_alert(subject: str, body_text: str):
-    print("\n" + "=" * 60)
-    print(body_text)
-    print("=" * 60 + "\n")
+    print("\n" + "=" * 65, flush=True)
+    print(body_text, flush=True)
+    print("=" * 65 + "\n", flush=True)
 
-    # 1. Alerta por Telegram (si está configurado en Secrets)
     tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     tg_chat = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
     if tg_token and tg_chat:
@@ -450,9 +445,8 @@ def send_live_alert(subject: str, body_text: str):
             )
             urllib.request.urlopen(req, timeout=10)
         except Exception as e:
-            print(f"[WARN] Error enviando Telegram: {e}")
+            print(f"[WARN] Error enviando Telegram: {e}", flush=True)
 
-    # 2. Alerta por Correo Electrónico (Gmail SMTP)
     smtp_user = os.environ.get("SMTP_EMAIL", "").strip()
     smtp_pass = os.environ.get("SMTP_PASSWORD", "").strip()
     to_email = os.environ.get("ALERT_TO_EMAIL", smtp_user).strip()
@@ -467,12 +461,9 @@ def send_live_alert(subject: str, body_text: str):
                 server.login(smtp_user, smtp_pass)
                 server.send_message(msg)
         except Exception as e:
-            print(f"[WARN] Error enviando Email SMTP: {e}")
+            print(f"[WARN] Error enviando Email SMTP: {e}", flush=True)
 
 
-# ======================================================================================
-# 6. GESTIÓN INSTITUCIONAL DE CARTERA, PERSISTENCIA Y LIQUIDACIÓN
-# ======================================================================================
 class InstitutionalPortfolio:
     def __init__(self, initial_bankroll: float = 100.0):
         self.balance = initial_bankroll
@@ -502,7 +493,7 @@ class InstitutionalPortfolio:
             json.dump(state, f, ensure_ascii=False)
 
     def load_full_state(self, tracker: CausalPITTracker) -> bool:
-        if not os.path.exists(STATE_FILE):
+        if not os.path.exists(STATE_FILE) or os.path.getsize(STATE_FILE) < 50:
             return False
         with open(STATE_FILE, "r", encoding="utf-8") as f:
             state = json.load(f)
@@ -529,19 +520,18 @@ class InstitutionalPortfolio:
         return True
 
     def update_institutional_files(self):
-        # 1. Libro mayor de apuestas liquidadas
-        if self.settled_bets:
-            keys = [
-                "match_id", "timestamp_utc", "players", "motor", "state_desc",
-                "selection", "odds", "stake_usd", "actual_points", "result",
-                "pnl_usd", "balance_after"
-            ]
-            with open(LEDGER_CSV, "w", newline="", encoding="utf-8") as f:
-                w = csv.DictWriter(f, fieldnames=keys, extrasaction="ignore")
-                w.writeheader()
+        # Siempre escribir el archivo CSV (incluso si hay 0 apuestas) para que git add nunca falle
+        keys = [
+            "match_id", "match_start_utc", "tournament_stage", "timestamp_utc",
+            "players", "motor", "state_desc", "selection", "odds", "stake_usd",
+            "final_sets_score", "actual_points", "result", "pnl_usd", "balance_after"
+        ]
+        with open(LEDGER_CSV, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=keys, extrasaction="ignore")
+            w.writeheader()
+            if self.settled_bets:
                 w.writerows(self.settled_bets)
 
-        # 2. KPIs Institucionales en tiempo real
         total = len(self.settled_bets)
         wins = sum(1 for b in self.settled_bets if b.get("result") == "GANADA")
         losses = total - wins
@@ -569,16 +559,9 @@ class InstitutionalPortfolio:
             json.dump(kpis, f, indent=2, ensure_ascii=False)
 
 
-# ======================================================================================
-# 7. AUTO-SINCRONIZACIÓN HISTÓRICA Y MOTOR DE VIGILANCIA EN VIVO
-# ======================================================================================
 def sync_historical_gap(tracker: CausalPITTracker, portfolio: InstitutionalPortfolio):
-    """
-    Rellena automáticamente todos los partidos finalizados (status == 3) desde last_synced_utc
-    hasta el momento actual para no dejar ningún hueco en la base de datos.
-    """
     now_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    print(f"[SYNC] Sincronizando historial desde {tracker.last_synced_utc} hasta {now_str}...")
+    print(f"[SYNC] Verificando partidos terminados desde {tracker.last_synced_utc} hasta {now_str}...", flush=True)
     base_url = (
         "https://api.league-pro.com/matches?sport_id=2&limit=100"
         f"&date_from={tracker.last_synced_utc}&date_to={now_str}"
@@ -602,7 +585,7 @@ def sync_historical_gap(tracker: CausalPITTracker, portfolio: InstitutionalPortf
         if offset >= total:
             break
 
-    print(f"[SYNC] Partidos terminados nuevos por incorporar al estado PIT: {len(new_finished_ids)}")
+    print(f"[SYNC] Partidos nuevos finalizados por actualizar en PIT: {len(new_finished_ids)}", flush=True)
     for idx, m_id in enumerate(new_finished_ids, 1):
         page = api_get_json(f"https://api.league-pro.com/pages/matches/{m_id}", 0.25, 0.45)
         if not page or "match" not in page:
@@ -630,17 +613,18 @@ def sync_historical_gap(tracker: CausalPITTracker, portfolio: InstitutionalPortf
         tracker.update_match_outcome(
             m_id, p1_id, p2_id, r1, r2, score_str, set_tuples, p1_name, p2_name, m.get("start_date", "")
         )
-        if idx % 50 == 0:
-            print(f"[SYNC] Actualizados {idx}/{len(new_finished_ids)} partidos...")
+        if idx % 25 == 0:
+            print(f"[SYNC] Progreso PIT: {idx}/{len(new_finished_ids)} partidos...", flush=True)
             portfolio.save_full_state(tracker)
 
     portfolio.save_full_state(tracker)
-    print("[SYNC] Estado PIT 100% al día.")
+    print(f"[SYNC] Base PIT al día ({len(tracker.processed_match_ids)} partidos en memoria).", flush=True)
 
 
 def settle_pending_bets_and_update_pit(tracker: CausalPITTracker, portfolio: InstitutionalPortfolio):
     if not portfolio.active_bets:
         return
+    print(f"[SETTLE] Verificando {len(portfolio.active_bets)} apuestas pendientes de liquidación...", flush=True)
     for bet in list(portfolio.active_bets):
         m_id = int(bet["match_id"])
         page = api_get_json(f"https://api.league-pro.com/pages/matches/{m_id}", 0.3, 0.5)
@@ -654,6 +638,9 @@ def settle_pending_bets_and_update_pit(tracker: CausalPITTracker, portfolio: Ins
         if not ps:
             continue
         tot_pts = sum(int(x[0]) + int(x[1]) for x in ps if len(x) >= 2)
+        sets_str = ", ".join(f"{int(x[0])}-{int(x[1])}" for x in ps if len(x) >= 2)
+        sc1, sc2 = int(res.get("score_one") or 0), int(res.get("score_two") or 0)
+
         is_win = (
             (tot_pts > bet["target_line"])
             if "Más de" in bet["selection"]
@@ -667,6 +654,7 @@ def settle_pending_bets_and_update_pit(tracker: CausalPITTracker, portfolio: Ins
         if dd > portfolio.max_drawdown:
             portfolio.max_drawdown = dd
 
+        bet["final_sets_score"] = f"{sc1}-{sc2} ({sets_str})"
         bet["actual_points"] = tot_pts
         bet["result"] = "GANADA" if is_win else "PERDIDA"
         bet["pnl_usd"] = pnl
@@ -675,14 +663,26 @@ def settle_pending_bets_and_update_pit(tracker: CausalPITTracker, portfolio: Ins
         portfolio.settled_bets.append(bet)
         portfolio.active_bets.remove(bet)
 
-        # Incorporar resultado al estado causal PIT
+        # Enviar notificación de liquidación oficial a Telegram
+        icon = "✅ GANADA" if is_win else "❌ PERDIDA"
+        sign_str = f"+${pnl:.2f}" if pnl >= 0 else f"-${abs(pnl):.2f}"
+        settle_msg = (
+            f"🏁 LIQUIDACIÓN OFICIAL — {icon}\n"
+            f"🆔 Match ID: #{m_id} | ⏰ Inicio: {format_match_times(bet.get('match_start_utc', ''))}\n"
+            f"🏓 PARTIDO: {bet['players']}\n"
+            f"🏆 TORNEO: {bet.get('tournament_stage', 'Czech Liga Pro')}\n"
+            f"🎯 PICK: {bet['selection']} (@{bet['odds']:.2f})\n"
+            f"🔢 MARCADOR FINAL: {sc1}-{sc2} en sets [{sets_str}] = {tot_pts} Puntos\n"
+            f"💵 P&L: {sign_str} USD | 💰 NUEVA BANCA: ${portfolio.balance:.2f} USD"
+        )
+        send_live_alert(f"🏁 {icon}: {bet['players']} ({tot_pts} pts)", settle_msg)
+
         s1, s2 = m.get("side_one") or {}, m.get("side_two") or {}
         p1, p2 = s1.get("player") or {}, s2.get("player") or {}
         st1, st2 = s1.get("stats") or {}, s2.get("stats") or {}
         p1_id, p2_id = int(p1.get("id") or 0), int(p2.get("id") or 0)
         r1 = float(st1.get("rating_before") or tracker.get_player_rating(p1_id))
         r2 = float(st2.get("rating_before") or tracker.get_player_rating(p2_id))
-        sc1, sc2 = int(res.get("score_one") or 0), int(res.get("score_two") or 0)
         set_tuples = [(int(x[0]), int(x[1])) for x in ps if len(x) >= 2]
         tracker.update_match_outcome(
             m_id, p1_id, p2_id, r1, r2, f"{sc1}-{sc2}", set_tuples, "", "", m.get("start_date", "")
@@ -696,27 +696,32 @@ def is_set_completed(p1_pts: int, p2_pts: int) -> bool:
     return max(p1_pts, p2_pts) >= 11 and abs(p1_pts - p2_pts) >= 2
 
 
-def run_live_sniper_shift(max_minutes: int = 215):
+def run_live_sniper_shift(max_minutes: int = 195):
+    # Reloj global iniciado ANTES de sincronizar para garantizar cierre limpio antes de los 230 min de GitHub
+    t_shift_start = time.time()
+
     tracker = CausalPITTracker()
     portfolio = InstitutionalPortfolio(initial_bankroll=CONFIG["execution"]["initial_bankroll_usd"])
     engine = UniversalPhysicsEngine()
 
     if not portfolio.load_full_state(tracker):
-        print("[INIT] Cargando bóveda semilla PIT_PLAYER_RATINGS_AND_RESISTANCE y PIT_H2H_MATRIX...")
+        print("[INIT] Cargando bóveda semilla PIT_PLAYER_RATINGS_AND_RESISTANCE y PIT_H2H_MATRIX...", flush=True)
         tracker.load_seed_vault_if_needed()
+    else:
+        print(f"[INIT] Estado previo cargado con éxito. Banca actual: ${portfolio.balance:.2f} USD", flush=True)
 
-    # 1. Rellenar cualquier hueco histórico antes de vigilar en vivo
     sync_historical_gap(tracker, portfolio)
+    settle_pending_bets_and_update_pit(tracker, portfolio)
     portfolio.update_institutional_files()
 
-    t_start = time.time()
-    last_settlement_check = 0.0
+    last_settlement_check = time.time()
+    scan_cycle = 0
 
-    print(f"[SNIPER] Vigilancia en vivo activa | Banca actual: ${portfolio.balance:.2f} USD")
+    print(f"[SNIPER] Vigilancia en vivo activa | Banca: ${portfolio.balance:.2f} USD", flush=True)
 
-    while (time.time() - t_start) < (max_minutes * 60):
+    while (time.time() - t_shift_start) < (max_minutes * 60):
+        scan_cycle += 1
         now_utc = datetime.now(timezone.utc)
-        # Ventana de partidos activos (iniciados hace <= 45 min o por iniciar en 5 min)
         w_from = (now_utc - timedelta(minutes=45)).strftime("%Y-%m-%dT%H:%M:%SZ")
         w_to = (now_utc + timedelta(minutes=10)).strftime("%Y-%m-%dT%H:%M:%SZ")
         url_active = (
@@ -725,9 +730,15 @@ def run_live_sniper_shift(max_minutes: int = 215):
         )
         listing = api_get_json(url_active, min_delay=0.35, max_delay=0.65)
         items = (listing or {}).get("items") or []
-
-        # Filtrar mesas que están en juego (status == 2)
         live_matches = [m for m in items if m.get("status") == 2]
+
+        if scan_cycle % 4 == 1:
+            elapsed_m = (time.time() - t_shift_start) / 60.0
+            print(
+                f"[SCAN #{scan_cycle} | {now_utc.strftime('%H:%M:%S')} UTC | {elapsed_m:.1f}/{max_minutes}m] "
+                f"Mesas en vivo (status=2): {len(live_matches)} | Apuestas activas: {len(portfolio.active_bets)}",
+                flush=True,
+            )
 
         for m_summary in live_matches:
             m_id = int(m_summary.get("id") or 0)
@@ -748,6 +759,11 @@ def run_live_sniper_shift(max_minutes: int = 215):
             s1, s2 = m.get("side_one") or {}, m.get("side_two") or {}
             p1, p2 = s1.get("player") or {}, s2.get("player") or {}
             st1, st2 = s1.get("stats") or {}, s2.get("stats") or {}
+            tour = m.get("tournament") or {}
+            stage = m.get("stage") or {}
+            tour_stage_str = f"{tour.get('name_en', '')} ({stage.get('name_en', 'Match')})".strip()
+            match_start_utc = m.get("start_date") or ""
+
             p1_id, p2_id = int(p1.get("id") or 0), int(p2.get("id") or 0)
             p1_name = f"{p1.get('first_name_en', '')} {p1.get('surname_en', '')}".strip()
             p2_name = f"{p2.get('first_name_en', '')} {p2.get('surname_en', '')}".strip()
@@ -763,9 +779,16 @@ def run_live_sniper_shift(max_minutes: int = 215):
                     sig = engine.evaluate_live_set1(
                         p1_id, p2_id, r1, r2, p1_s1, p2_s1, tracker, portfolio.balance
                     )
+                    print(
+                        f"  -> [EVAL SET 1] #{m_id} {p1_name} vs {p2_name} ({p1_s1}-{p2_s1}): "
+                        f"{sig.get('action')} ({sig.get('reason', 'OK')})",
+                        flush=True,
+                    )
                     if sig.get("action") == "BET":
                         bet_rec = {
                             "match_id": m_id,
+                            "match_start_utc": match_start_utc,
+                            "tournament_stage": tour_stage_str,
                             "timestamp_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
                             "players": f"{p1_name} vs {p2_name}",
                             "motor": sig["motor"],
@@ -780,14 +803,16 @@ def run_live_sniper_shift(max_minutes: int = 215):
                         portfolio.save_full_state(tracker)
                         alert_txt = (
                             f"🚨 ALERTA ORACLE LIVE — {sig['motor']}\n"
-                            f"🏓 PARTIDO: {p1_name} vs {p2_name}\n"
+                            f"🆔 Match ID: #{m_id} | ⏰ Inicio: {format_match_times(match_start_utc)}\n"
+                            f"🏆 TORNEO: {tour_stage_str}\n"
+                            f"🏓 PARTIDO: {p1_name} (Local) vs {p2_name} (Visita)\n"
                             f"📊 ESTADO: {sig['state_desc']} | Ratings: {r1:.0f} vs {r2:.0f}\n"
                             f"🎯 SELECCIÓN EXACTA: {sig['selection']} (Cuota @{sig['screen_odds']:.2f})\n"
                             f"💰 STAKE KELLY: ${sig['stake_usd']:.2f} USD ({sig['recommended_stake_pct']*100:.2f}% de ${portfolio.balance:.2f})\n"
                             f"🔬 P_STRUCTURAL: {sig['p_structural']:.4f} | EV: +{sig['expected_value']*100:.2f}%"
                         )
                         send_live_alert(
-                            f"🎯 PICK LIVE: {p1_name} vs {p2_name} ({sig['selection']})",
+                            f"🎯 PICK LIVE #{m_id}: {p1_name} vs {p2_name} ({sig['selection']})",
                             alert_txt,
                         )
 
@@ -801,9 +826,16 @@ def run_live_sniper_shift(max_minutes: int = 215):
                     sig = engine.evaluate_live_set2(
                         p1_id, p2_id, r1, r2, p1_s1, p2_s1, p1_s2, p2_s2, tracker, portfolio.balance
                     )
+                    print(
+                        f"  -> [EVAL SET 2] #{m_id} {p1_name} vs {p2_name} ({p1_s1}-{p2_s1}, {p1_s2}-{p2_s2}): "
+                        f"{sig.get('action')} ({sig.get('reason', 'OK')})",
+                        flush=True,
+                    )
                     if sig.get("action") == "BET":
                         bet_rec = {
                             "match_id": m_id,
+                            "match_start_utc": match_start_utc,
+                            "tournament_stage": tour_stage_str,
                             "timestamp_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
                             "players": f"{p1_name} vs {p2_name}",
                             "motor": sig["motor"],
@@ -818,30 +850,31 @@ def run_live_sniper_shift(max_minutes: int = 215):
                         portfolio.save_full_state(tracker)
                         alert_txt = (
                             f"🚨 ALERTA ORACLE LIVE — {sig['motor']}\n"
-                            f"🏓 PARTIDO: {p1_name} vs {p2_name}\n"
+                            f"🆔 Match ID: #{m_id} | ⏰ Inicio: {format_match_times(match_start_utc)}\n"
+                            f"🏆 TORNEO: {tour_stage_str}\n"
+                            f"🏓 PARTIDO: {p1_name} (Local) vs {p2_name} (Visita)\n"
                             f"📊 ESTADO: {sig['state_desc']} | Ratings: {r1:.0f} vs {r2:.0f}\n"
                             f"🎯 SELECCIÓN EXACTA: {sig['selection']} (Cuota @{sig['screen_odds']:.2f})\n"
                             f"💰 STAKE KELLY: ${sig['stake_usd']:.2f} USD ({sig['recommended_stake_pct']*100:.2f}% de ${portfolio.balance:.2f})\n"
                             f"🔬 P_STRUCTURAL: {sig['p_structural']:.4f} | EV: +{sig['expected_value']*100:.2f}%"
                         )
                         send_live_alert(
-                            f"🎯 PICK LIVE: {p1_name} vs {p2_name} ({sig['selection']})",
+                            f"🎯 PICK LIVE #{m_id}: {p1_name} vs {p2_name} ({sig['selection']})",
                             alert_txt,
                         )
 
-        # Liquidación en bloques de 15-30 minutos y actualización PIT
-        if (time.time() - last_settlement_check) >= 900:
+        if (time.time() - last_settlement_check) >= 600:
             settle_pending_bets_and_update_pit(tracker, portfolio)
             sync_historical_gap(tracker, portfolio)
             last_settlement_check = time.time()
 
         time.sleep(15)
 
-    # Liquidación final antes de cerrar el turno de 4 horas
     settle_pending_bets_and_update_pit(tracker, portfolio)
     sync_historical_gap(tracker, portfolio)
-    print(f"[SHIFT END] Turno finalizado. Balance actual: ${portfolio.balance:.2f} USD")
+    portfolio.update_institutional_files()
+    print(f"[SHIFT END] Turno cerrado limpiamente. Balance actual: ${portfolio.balance:.2f} USD", flush=True)
 
 
 if __name__ == "__main__":
-    run_live_sniper_shift(max_minutes=215)
+    run_live_sniper_shift(max_minutes=195)
