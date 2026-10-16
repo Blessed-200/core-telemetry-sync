@@ -1,0 +1,46 @@
+name: Core Telemetry Sync
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # Relevo automatico cada 4 horas (24/7)
+  workflow_dispatch:        # Boton manual para iniciarlo cuando quieras
+
+permissions:
+  contents: write
+
+jobs:
+  telemetry-node:
+    runs-on: ubuntu-latest
+    timeout-minutes: 230
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install numpy
+        run: pip install numpy
+
+      - name: Run Live Sniper Shift
+        env:
+          INITIAL_BANKROLL: '100.0'
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_TO_EMAIL: ${{ secrets.ALERT_TO_EMAIL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python core_telemetry_daemon.py
+
+      - name: Persist Institutional Ledgers & PIT State
+        if: always()
+        run: |
+          git config user.name "telemetry-bot"
+          git config user.email "telemetry-bot@users.noreply.github.com"
+          git add oracle_live_state.json institutional_ledger.csv institutional_kpis.json || true
+          git diff --staged --quiet || git commit -m "chore: sync telemetry state"
+          git pull --rebase origin main || true
+          git push origin main || true
