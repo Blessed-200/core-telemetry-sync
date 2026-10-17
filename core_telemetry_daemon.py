@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
 ========================================================================================
-CORE TELEMETRY DAEMON — SPORTS ORACLE LIVE PRODUCTION SERVER (F11.1)
+LINEMETRICS LIVE — QUANTITATIVE TELEMETRY & ODDS EXECUTION DAEMON (F11.2 + BETWINNER)
 ========================================================================================
-- Logs en tiempo real (unbuffered) de cada barrido y cada mesa en vivo.
-- Identificación exacta de Torneo, Fase (Group/Final), Match ID y Hora Inicio (Cuba/UTC).
-- Notificación automática a Telegram al disparar el pick Y al liquidar el resultado final.
-- Cierre limpio a los 195 minutos para evitar cancelaciones por timeout en GitHub Actions.
+1. Conector Causal League-Pro (Física de jugadores, Ratings PIT, H2H y Resistencia).
+2. Conector en Vivo Betwinner API (/service-api/LiveFeed/Get1x2_VZip & GetGameZip).
+3. Emparejamiento automático de jugadores y Line Shopping sobre la escalera real (G=17/G=4).
+4. Registro de Tick Data de cuotas en vivo (bw_odds_ticks.csv) para entrenamiento ML.
+5. Alertas en Telegram con Botones Interactivos y Liquidación Oficial Auditada.
 ========================================================================================
 """
 
@@ -20,6 +21,7 @@ import random
 import smtplib
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone, timedelta
@@ -28,7 +30,6 @@ from email.mime.text import MIMEText
 from typing import Dict, List, Tuple, Optional, Any
 import numpy as np
 
-# Forzar salida inmediata en consola para GitHub Actions
 sys.stdout.reconfigure(line_buffering=True)
 
 DEFAULT_TOKENS = [
@@ -38,6 +39,12 @@ DEFAULT_TOKENS = [
 ]
 
 token_cycle = itertools.cycle(DEFAULT_TOKENS)
+
+BW_DOMAINS = [
+    os.environ.get("BW_DOMAIN", "https://betwinner2.com").rstrip("/"),
+    "https://betwinner.com",
+    "https://1xbet.com",
+]
 
 
 def get_headers() -> Dict[str, str]:
@@ -59,7 +66,7 @@ def get_headers() -> Dict[str, str]:
     }
 
 
-def api_get_json(url: str, min_delay: float = 0.40, max_delay: float = 0.75) -> Optional[Dict[str, Any]]:
+def api_get_json(url: str, min_delay: float = 0.35, max_delay: float = 0.70) -> Optional[Dict[str, Any]]:
     time.sleep(random.uniform(min_delay, max_delay))
     for attempt in range(4):
         try:
@@ -71,7 +78,7 @@ def api_get_json(url: str, min_delay: float = 0.40, max_delay: float = 0.75) -> 
                 return json.loads(raw)
         except urllib.error.HTTPError as e:
             if e.code == 429:
-                time.sleep(12 + 8 * attempt)
+                time.sleep(10 + 6 * attempt)
                 continue
             if e.code in (401, 403):
                 time.sleep(3)
@@ -94,13 +101,159 @@ def format_match_times(iso_str: str) -> str:
         return iso_str
 
 
+# ======================================================================================
+# CONECTOR EN VIVO BETWINNER / BETB2B (EMPAREJAMIENTO Y ESCALERA DE CUOTAS G=17 / G=4)
+# ======================================================================================
+def normalize_name_tokens(name: str) -> set:
+    if not name:
+        return set()
+    s = "".join(
+        c for c in unicodedata.normalize("NFD", name.lower())
+        if unicodedata.category(c) != "Mn"
+    )
+    for ch in ".,-()'\"":
+        s = s.replace(ch, " ")
+    return {t for t in s.split() if len(t) > 1}
+
+
+def players_match_fuzzy(lp_p1: str, lp_p2: str, bw_p1: str, bw_p2: str) -> bool:
+    t_lp1, t_lp2 = normalize_name_tokens(lp_p1), normalize_name_tokens(lp_p2)
+    t_bw1, t_bw2 = normalize_name_tokens(bw_p1), normalize_name_tokens(bw_p2)
+    if not t_lp1 or not t_lp2 or not t_bw1 or not t_bw2:
+        return False
+
+    def pair_hit(a: set, b: set) -> bool:
+        common = a & b
+        return len(common) >= 2 or (len(common) == 1 and (len(a) == 1 or len(b) == 1))
+
+    direct = pair_hit(t_lp1, t_bw1) and pair_hit(t_lp2, t_bw2)
+    swapped = pair_hit(t_lp1, t_bw2) and pair_hit(t_lp2, t_bw1)
+    return direct or swapped
+
+
+class BetwinnerLiveConnector:
+    def __init__(self):
+        self.working_domain: str = BW_DOMAINS[0]
+        self.last_feed_cache: List[Dict[str, Any]] = []
+        self.last_fetch_ts: float = 0.0
+
+    def _bw_get_json(self, url: str) -> Optional[Dict[str, Any]]:
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) "
+                "AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1"
+            ),
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+            "Accept-Encoding": "gzip",
+            "X-Requested-With": "XMLHttpRequest",
+        }
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=12) as r:
+                raw = r.read()
+                if r.headers.get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
+                return json.loads(raw.decode("utf-8", errors="replace"))
+        except Exception:
+            return None
+
+    def fetch_live_table_tennis_feed(self) -> List[Dict[str, Any]]:
+        if (time.time() - self.last_fetch_ts) < 10.0 and self.last_feed_cache:
+            return self.last_feed_cache
+
+        for dom in BW_DOMAINS:
+            for prefix in ("/service-api", ""):
+                url = f"{dom}{prefix}/LiveFeed/Get1x2_VZip?sports=10&count=100&lng=es&mode=4"
+                data = self._bw_get_json(url)
+                if data and isinstance(data.get("Value"), list):
+                    self.working_domain = f"{dom}{prefix}"
+                    self.last_feed_cache = data["Value"]
+                    self.last_fetch_ts = time.time()
+                    return self.last_feed_cache
+        return []
+
+    @staticmethod
+    def extract_totals_ladder(match_obj: Dict[str, Any]) -> Dict[str, Dict[float, float]]:
+        overs: Dict[float, float] = {}
+        unders: Dict[float, float] = {}
+
+        # 1. Eventos principales 'E' (G=17 o G=4)
+        for item in match_obj.get("E") or []:
+            if item.get("G") in (4, 17) and "P" in item and "C" in item:
+                if item.get("T") == 9:
+                    overs[float(item["P"])] = float(item["C"])
+                elif item.get("T") == 10:
+                    unders[float(item["P"])] = float(item["C"])
+
+        # 2. Escalera alternativa 'AE' en Get1x2_VZip (G=17 -> ME)
+        for ae in match_obj.get("AE") or []:
+            if ae.get("G") in (4, 17):
+                for item in ae.get("ME") or []:
+                    if "P" in item and "C" in item:
+                        if item.get("T") == 9:
+                            overs[float(item["P"])] = float(item["C"])
+                        elif item.get("T") == 10:
+                            unders[float(item["P"])] = float(item["C"])
+
+        # 3. Escalera completa 'GE' en GetGameZip (G=4 o G=17 -> E)
+        for ge in match_obj.get("GE") or []:
+            if ge.get("G") in (4, 17):
+                for col in ge.get("E") or []:
+                    if isinstance(col, list):
+                        for item in col:
+                            if "P" in item and "C" in item:
+                                if item.get("T") == 9:
+                                    overs[float(item["P"])] = float(item["C"])
+                                elif item.get("T") == 10:
+                                    unders[float(item["P"])] = float(item["C"])
+
+        return {
+            "overs": dict(sorted(overs.items())),
+            "unders": dict(sorted(unders.items())),
+        }
+
+    def find_match_and_ladder(self, lp_p1: str, lp_p2: str) -> Optional[Dict[str, Any]]:
+        feed = self.fetch_live_table_tennis_feed()
+        for m in feed:
+            bw_p1 = m.get("O1E") or m.get("O1") or ""
+            bw_p2 = m.get("O2E") or m.get("O2") or ""
+            if players_match_fuzzy(lp_p1, lp_p2, bw_p1, bw_p2):
+                bw_id = int(m.get("I") or 0)
+                ladder = self.extract_totals_ladder(m)
+                # Si queremos enriquecer aún más la escalera, consultamos GetGameZip
+                if bw_id:
+                    detail_url = (
+                        f"{self.working_domain}/LiveFeed/GetGameZip?"
+                        f"id={bw_id}&lng=es&isSubGames=true&GroupEvents=true&countevents=250&grMode=2"
+                    )
+                    detail = self._bw_get_json(detail_url)
+                    if detail and isinstance(detail.get("Value"), dict):
+                        extra = self.extract_totals_ladder(detail["Value"])
+                        ladder["overs"].update(extra["overs"])
+                        ladder["unders"].update(extra["unders"])
+                        ladder["overs"] = dict(sorted(ladder["overs"].items()))
+                        ladder["unders"] = dict(sorted(ladder["unders"].items()))
+
+                return {
+                    "bw_match_id": bw_id,
+                    "bw_league": m.get("L") or m.get("LE") or "",
+                    "bw_players": f"{bw_p1} vs {bw_p2}",
+                    "overs": ladder["overs"],
+                    "unders": ladder["unders"],
+                }
+        return None
+
+
 CONFIG = {
     "m2a": {
         "min_x1_deuce": 22,
         "max_abs_delta_rating": 25.0,
         "line_offset": 50.5,
         "odds_target": 1.62,
-        "odds_floor": 1.60,
+        "odds_floor": 1.55,
+        "min_ev": 0.08,
+        "logit_slope_per_pt": 0.22,
         "p_base_logit": 0.85,
         "w_asym_penalty": 1.40,
         "w_exp_bonus": 0.22,
@@ -121,7 +274,9 @@ CONFIG = {
         "max_trailer_h2h_wr": 0.35,
         "line_offset": 31.5,
         "odds_target": 1.86,
-        "odds_floor": 1.82,
+        "odds_floor": 1.72,
+        "min_ev": 0.08,
+        "logit_slope_per_pt": 0.22,
         "p_base_logit": 0.42,
         "w_trailer_penalty": 0.90,
         "w_res_mitigation": 0.20,
@@ -139,6 +294,37 @@ CONFIG = {
 STATE_FILE = "oracle_live_state.json"
 LEDGER_CSV = "institutional_ledger.csv"
 KPIS_JSON = "institutional_kpis.json"
+ODDS_TICKS_CSV = "bw_odds_ticks.csv"
+
+
+def log_bw_odds_tick(
+    lp_match_id: int,
+    bw_match_id: int,
+    players: str,
+    stage_label: str,
+    sets_score: str,
+    overs: Dict[float, float],
+    unders: Dict[float, float],
+):
+    file_exists = os.path.exists(ODDS_TICKS_CSV) and os.path.getsize(ODDS_TICKS_CSV) > 0
+    with open(ODDS_TICKS_CSV, "a", newline="", encoding="utf-8") as f:
+        fieldnames = [
+            "timestamp_utc", "lp_match_id", "bw_match_id", "players",
+            "stage", "sets_score", "overs_json", "unders_json"
+        ]
+        w = csv.DictWriter(f, fieldnames=fieldnames)
+        if not file_exists:
+            w.writeheader()
+        w.writerow({
+            "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "lp_match_id": lp_match_id,
+            "bw_match_id": bw_match_id,
+            "players": players,
+            "stage": stage_label,
+            "sets_score": sets_score,
+            "overs_json": json.dumps(overs),
+            "unders_json": json.dumps(unders),
+        })
 
 
 class CausalPITTracker:
@@ -266,6 +452,54 @@ class UniversalPhysicsEngine:
         self.m1b_cfg = config["m1b"]
         self.exec_cfg = config["execution"]
 
+    @staticmethod
+    def adjust_p_for_line(
+        p_anchor: float, anchor_line: float, candidate_line: float, is_over: bool, slope: float = 0.22
+    ) -> float:
+        p_clamped = min(max(p_anchor, 0.01), 0.99)
+        logit_anchor = math.log(p_clamped / (1.0 - p_clamped))
+        diff = candidate_line - anchor_line
+        new_logit = (logit_anchor - slope * diff) if is_over else (logit_anchor + slope * diff)
+        return float(1.0 / (1.0 + math.exp(-new_logit)))
+
+    def select_optimal_line_from_ladder(
+        self,
+        p_anchor: float,
+        anchor_line: float,
+        ladder_dict: Dict[float, float],
+        is_motor_2a: bool,
+        n_min: int,
+        bankroll: float,
+    ) -> Optional[Dict[str, Any]]:
+        cfg_m = self.m2a_cfg if is_motor_2a else self.m1b_cfg
+        best_choice = None
+        best_ev = -999.0
+
+        for line_val, odds_val in ladder_dict.items():
+            # Filtrar líneas demasiado alejadas del régimen estructural (+/- 3.5 puntos)
+            if abs(line_val - anchor_line) > 3.5:
+                continue
+            if odds_val < cfg_m["odds_floor"]:
+                continue
+
+            p_line = self.adjust_p_for_line(
+                p_anchor, anchor_line, line_val, is_over=is_motor_2a, slope=cfg_m["logit_slope_per_pt"]
+            )
+            stake_usd, stake_pct, ev = self.calculate_kelly_stake(
+                p_line, odds_val, n_min, bankroll, is_motor_2a=is_motor_2a
+            )
+            if ev >= cfg_m["min_ev"] and ev > best_ev:
+                best_ev = ev
+                best_choice = {
+                    "target_line": line_val,
+                    "screen_odds": odds_val,
+                    "p_structural": round(p_line, 4),
+                    "expected_value": round(ev, 4),
+                    "recommended_stake_pct": round(stake_pct, 4),
+                    "stake_usd": stake_usd,
+                }
+        return best_choice
+
     def compute_p_structural_2a(
         self, abs_dr: float, h2h_wr_s1_win: float, n_min: int, res_mean_min: float
     ) -> float:
@@ -299,7 +533,7 @@ class UniversalPhysicsEngine:
         cfg_m = self.m2a_cfg if is_motor_2a else self.m1b_cfg
         b_net = odds - 1.0
         ev = p_struct * odds - 1.0
-        if ev <= 0:
+        if ev <= 0 or b_net <= 0:
             return 0.0, 0.0, ev
         full_kelly = ev / b_net
         conf_weight = min(n_min / 40.0, 1.0)
@@ -320,7 +554,7 @@ class UniversalPhysicsEngine:
         p2_s1: int,
         tracker: CausalPITTracker,
         bankroll: float,
-        current_screen_odds: float = 1.62,
+        bw_market: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         x1 = p1_s1 + p2_s1
         abs_dr = abs(r1 - r2)
@@ -345,23 +579,55 @@ class UniversalPhysicsEngine:
         if is_risk:
             return {"action": "NO_BET", "reason": risk_reason}
 
-        p_struct = self.compute_p_structural_2a(abs_dr, h2h_wr_s1_win, n_min, res_mean_min)
-        effective_odds = max(current_screen_odds, c["odds_floor"])
+        p_anchor = self.compute_p_structural_2a(abs_dr, h2h_wr_s1_win, n_min, res_mean_min)
+        anchor_line = x1 + c["line_offset"]
+
+        # Si tenemos escalera en vivo de Betwinner, aplicamos Line Shopping real
+        if bw_market and bw_market.get("overs"):
+            opt = self.select_optimal_line_from_ladder(
+                p_anchor, anchor_line, bw_market["overs"], is_motor_2a=True, n_min=n_min, bankroll=bankroll
+            )
+            if not opt:
+                return {
+                    "action": "NO_BET",
+                    "reason": f"Cuotas Betwinner sin EV suficiente: {bw_market['overs']}",
+                }
+            ladder_str = " | ".join(f">{k}@{v}" for k, v in bw_market["overs"].items())
+            return {
+                "action": "BET",
+                "motor": "Motor 2A F11.2 (OVER ÉLITE)",
+                "selection": f"Más de {opt['target_line']:.1f} Puntos",
+                "target_line": opt["target_line"],
+                "screen_odds": opt["screen_odds"],
+                "p_structural": opt["p_structural"],
+                "expected_value": opt["expected_value"],
+                "recommended_stake_pct": opt["recommended_stake_pct"],
+                "stake_usd": opt["stake_usd"],
+                "state_desc": f"Set 1 Deuce: {p1_s1}-{p2_s1} ({x1} pts)",
+                "odds_source": f"🟢 BETWINNER LIVE (ID #{bw_market['bw_match_id']})",
+                "ladder_str": ladder_str,
+                "bw_match_id": bw_market["bw_match_id"],
+            }
+
+        # Respaldo teórico si la mesa no está abierta en Betwinner en ese segundo
+        effective_odds = c["odds_target"]
         stake_usd, stake_pct, ev = self.calculate_kelly_stake(
-            p_struct, effective_odds, n_min, bankroll, is_motor_2a=True
+            p_anchor, effective_odds, n_min, bankroll, is_motor_2a=True
         )
-        target_line = x1 + c["line_offset"]
         return {
             "action": "BET",
-            "motor": "Motor 2A F11.1 (OVER ÉLITE)",
-            "selection": f"Más de {target_line:.1f} Puntos",
-            "target_line": target_line,
+            "motor": "Motor 2A F11.2 (OVER ÉLITE)",
+            "selection": f"Más de {anchor_line:.1f} Puntos",
+            "target_line": anchor_line,
             "screen_odds": effective_odds,
-            "p_structural": round(p_struct, 4),
+            "p_structural": round(p_anchor, 4),
             "expected_value": round(ev, 4),
             "recommended_stake_pct": round(stake_pct, 4),
             "stake_usd": stake_usd,
             "state_desc": f"Set 1 Deuce: {p1_s1}-{p2_s1} ({x1} pts)",
+            "odds_source": "🟡 MODELO TEÓRICO (Sin línea BW activa)",
+            "ladder_str": f">{anchor_line:.1f}@{effective_odds:.2f} (Teórica)",
+            "bw_match_id": 0,
         }
 
     def evaluate_live_set2(
@@ -376,7 +642,7 @@ class UniversalPhysicsEngine:
         p2_s2: int,
         tracker: CausalPITTracker,
         bankroll: float,
-        current_screen_odds: float = 1.86,
+        bw_market: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         s1_w = p1_s1 > p2_s1
         s2_w = p1_s2 > p2_s2
@@ -408,38 +674,85 @@ class UniversalPhysicsEngine:
             + c["w_trailer_penalty"] * max(c["max_trailer_h2h_wr"] - wr_trailer, 0.0)
             - c["w_res_mitigation"] * max(mu_trailer - 7.50, 0.0)
         )
-        p_struct = float(1.0 / (1.0 + math.exp(-logit_1b)))
+        p_anchor = float(1.0 / (1.0 + math.exp(-logit_1b)))
         n_min = min(tracker.get_player_experience(p1_id), tracker.get_player_experience(p2_id))
-        effective_odds = max(current_screen_odds, c["odds_floor"])
+        anchor_line = x12 + c["line_offset"]
+
+        if bw_market and bw_market.get("unders"):
+            opt = self.select_optimal_line_from_ladder(
+                p_anchor, anchor_line, bw_market["unders"], is_motor_2a=False, n_min=n_min, bankroll=bankroll
+            )
+            if not opt:
+                return {
+                    "action": "NO_BET",
+                    "reason": f"Cuotas Betwinner sin EV suficiente: {bw_market['unders']}",
+                }
+            ladder_str = " | ".join(f"<{k}@{v}" for k, v in bw_market["unders"].items())
+            return {
+                "action": "BET",
+                "motor": "Motor 1B F11.2 (UNDER 2-0 CERRADO)",
+                "selection": f"Menos de {opt['target_line']:.1f} Puntos",
+                "target_line": opt["target_line"],
+                "screen_odds": opt["screen_odds"],
+                "p_structural": opt["p_structural"],
+                "expected_value": opt["expected_value"],
+                "recommended_stake_pct": opt["recommended_stake_pct"],
+                "stake_usd": opt["stake_usd"],
+                "state_desc": f"Marcador 2-0 Cerrado: {p1_s1}-{p2_s1}, {p1_s2}-{p2_s2} ({x12} pts)",
+                "odds_source": f"🟢 BETWINNER LIVE (ID #{bw_market['bw_match_id']})",
+                "ladder_str": ladder_str,
+                "bw_match_id": bw_market["bw_match_id"],
+            }
+
+        effective_odds = c["odds_target"]
         stake_usd, stake_pct, ev = self.calculate_kelly_stake(
-            p_struct, effective_odds, n_min, bankroll, is_motor_2a=False
+            p_anchor, effective_odds, n_min, bankroll, is_motor_2a=False
         )
-        target_line = x12 + c["line_offset"]
         return {
             "action": "BET",
-            "motor": "Motor 1B F11.1 (UNDER 2-0 CERRADO)",
-            "selection": f"Menos de {target_line:.1f} Puntos",
-            "target_line": target_line,
+            "motor": "Motor 1B F11.2 (UNDER 2-0 CERRADO)",
+            "selection": f"Menos de {anchor_line:.1f} Puntos",
+            "target_line": anchor_line,
             "screen_odds": effective_odds,
-            "p_structural": round(p_struct, 4),
+            "p_structural": round(p_anchor, 4),
             "expected_value": round(ev, 4),
             "recommended_stake_pct": round(stake_pct, 4),
             "stake_usd": stake_usd,
             "state_desc": f"Marcador 2-0 Cerrado: {p1_s1}-{p2_s1}, {p1_s2}-{p2_s2} ({x12} pts)",
+            "odds_source": "🟡 MODELO TEÓRICO (Sin línea BW activa)",
+            "ladder_str": f"<{anchor_line:.1f}@{effective_odds:.2f} (Teórica)",
+            "bw_match_id": 0,
         }
 
 
-def send_live_alert(subject: str, body_text: str):
-    print("\n" + "=" * 65, flush=True)
+def send_live_alert(subject: str, body_text: str, bw_match_id: int = 0):
+    print("\n" + "=" * 68, flush=True)
     print(body_text, flush=True)
-    print("=" * 65 + "\n", flush=True)
+    print("=" * 68 + "\n", flush=True)
 
     tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     tg_chat = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
     if tg_token and tg_chat:
         try:
             tg_url = f"https://api.telegram.org/bot{tg_token}/sendMessage"
-            payload = json.dumps({"chat_id": tg_chat, "text": body_text}).encode("utf-8")
+            buttons = [
+                [
+                    {
+                        "text": "📊 Libro Mayor & KPIs",
+                        "url": "https://github.com/Blessed-200/core-telemetry-sync/blob/main/institutional_ledger.csv",
+                    },
+                    {
+                        "text": "📈 Betwinner En Vivo",
+                        "url": "https://betwinner2.com/es/live/table-tennis",
+                    },
+                ]
+            ]
+            payload_dict: Dict[str, Any] = {
+                "chat_id": tg_chat,
+                "text": body_text,
+                "reply_markup": {"inline_keyboard": buttons},
+            }
+            payload = json.dumps(payload_dict).encode("utf-8")
             req = urllib.request.Request(
                 tg_url, data=payload, headers={"Content-Type": "application/json"}
             )
@@ -520,11 +833,10 @@ class InstitutionalPortfolio:
         return True
 
     def update_institutional_files(self):
-        # Siempre escribir el archivo CSV (incluso si hay 0 apuestas) para que git add nunca falle
         keys = [
-            "match_id", "match_start_utc", "tournament_stage", "timestamp_utc",
-            "players", "motor", "state_desc", "selection", "odds", "stake_usd",
-            "final_sets_score", "actual_points", "result", "pnl_usd", "balance_after"
+            "match_id", "bw_match_id", "match_start_utc", "tournament_stage", "timestamp_utc",
+            "players", "motor", "state_desc", "selection", "odds", "odds_source",
+            "stake_usd", "final_sets_score", "actual_points", "result", "pnl_usd", "balance_after"
         ]
         with open(LEDGER_CSV, "w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=keys, extrasaction="ignore")
@@ -541,6 +853,7 @@ class InstitutionalPortfolio:
         gross_loss = abs(sum(float(b.get("pnl_usd", 0)) for b in self.settled_bets if float(b.get("pnl_usd", 0)) < 0))
 
         kpis = {
+            "brand": "LineMetrics Live",
             "updated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "current_balance_usd": round(self.balance, 2),
             "peak_balance_usd": round(self.peak_balance, 2),
@@ -663,17 +976,17 @@ def settle_pending_bets_and_update_pit(tracker: CausalPITTracker, portfolio: Ins
         portfolio.settled_bets.append(bet)
         portfolio.active_bets.remove(bet)
 
-        # Enviar notificación de liquidación oficial a Telegram
         icon = "✅ GANADA" if is_win else "❌ PERDIDA"
         sign_str = f"+${pnl:.2f}" if pnl >= 0 else f"-${abs(pnl):.2f}"
         settle_msg = (
-            f"🏁 LIQUIDACIÓN OFICIAL — {icon}\n"
-            f"🆔 Match ID: #{m_id} | ⏰ Inicio: {format_match_times(bet.get('match_start_utc', ''))}\n"
+            f"🏁 LINEMETRICS LIVE — LIQUIDACIÓN ({icon})\n"
+            f"🆔 LP #{m_id} | ⏰ Inicio: {format_match_times(bet.get('match_start_utc', ''))}\n"
             f"🏓 PARTIDO: {bet['players']}\n"
             f"🏆 TORNEO: {bet.get('tournament_stage', 'Czech Liga Pro')}\n"
-            f"🎯 PICK: {bet['selection']} (@{bet['odds']:.2f})\n"
-            f"🔢 MARCADOR FINAL: {sc1}-{sc2} en sets [{sets_str}] = {tot_pts} Puntos\n"
-            f"💵 P&L: {sign_str} USD | 💰 NUEVA BANCA: ${portfolio.balance:.2f} USD"
+            f"🎯 PICK: {bet['selection']} (@{bet['odds']:.3f})\n"
+            f"📡 FUENTE CUOTA: {bet.get('odds_source', 'N/A')}\n"
+            f"🔢 MARCADOR FINAL: {sc1}-{sc2} [{sets_str}] = {tot_pts} Puntos\n"
+            f"💵 P&L: {sign_str} USD | 💰 BANCA ACTUAL: ${portfolio.balance:.2f} USD"
         )
         send_live_alert(f"🏁 {icon}: {bet['players']} ({tot_pts} pts)", settle_msg)
 
@@ -697,18 +1010,18 @@ def is_set_completed(p1_pts: int, p2_pts: int) -> bool:
 
 
 def run_live_sniper_shift(max_minutes: int = 195):
-    # Reloj global iniciado ANTES de sincronizar para garantizar cierre limpio antes de los 230 min de GitHub
     t_shift_start = time.time()
 
     tracker = CausalPITTracker()
     portfolio = InstitutionalPortfolio(initial_bankroll=CONFIG["execution"]["initial_bankroll_usd"])
     engine = UniversalPhysicsEngine()
+    bw_connector = BetwinnerLiveConnector()
 
     if not portfolio.load_full_state(tracker):
         print("[INIT] Cargando bóveda semilla PIT_PLAYER_RATINGS_AND_RESISTANCE y PIT_H2H_MATRIX...", flush=True)
         tracker.load_seed_vault_if_needed()
     else:
-        print(f"[INIT] Estado previo cargado con éxito. Banca actual: ${portfolio.balance:.2f} USD", flush=True)
+        print(f"[INIT] Estado LineMetrics cargado. Banca actual: ${portfolio.balance:.2f} USD", flush=True)
 
     sync_historical_gap(tracker, portfolio)
     settle_pending_bets_and_update_pit(tracker, portfolio)
@@ -717,7 +1030,7 @@ def run_live_sniper_shift(max_minutes: int = 195):
     last_settlement_check = time.time()
     scan_cycle = 0
 
-    print(f"[SNIPER] Vigilancia en vivo activa | Banca: ${portfolio.balance:.2f} USD", flush=True)
+    print(f"[LINEMETRICS] Vigilancia en vivo + Betwinner Odds activa | Banca: ${portfolio.balance:.2f} USD", flush=True)
 
     while (time.time() - t_shift_start) < (max_minutes * 60):
         scan_cycle += 1
@@ -732,11 +1045,14 @@ def run_live_sniper_shift(max_minutes: int = 195):
         items = (listing or {}).get("items") or []
         live_matches = [m for m in items if m.get("status") == 2]
 
+        # Refrescar feed en vivo de Betwinner si hay mesas activas
+        bw_feed = bw_connector.fetch_live_table_tennis_feed() if live_matches else []
+
         if scan_cycle % 4 == 1:
             elapsed_m = (time.time() - t_shift_start) / 60.0
             print(
                 f"[SCAN #{scan_cycle} | {now_utc.strftime('%H:%M:%S')} UTC | {elapsed_m:.1f}/{max_minutes}m] "
-                f"Mesas en vivo (status=2): {len(live_matches)} | Apuestas activas: {len(portfolio.active_bets)}",
+                f"Mesas LP en vivo: {len(live_matches)} | Mesas BW TT: {len(bw_feed)} | Activas: {len(portfolio.active_bets)}",
                 flush=True,
             )
 
@@ -770,23 +1086,31 @@ def run_live_sniper_shift(max_minutes: int = 195):
             r1 = float(st1.get("rating_before") or tracker.get_player_rating(p1_id))
             r2 = float(st2.get("rating_before") or tracker.get_player_rating(p2_id))
 
-            # --- EVALUACIÓN FIN DEL SET 1 (MOTOR 2A F11.1) ---
+            # --- EVALUACIÓN FIN DEL SET 1 (MOTOR 2A F11.2) ---
             if m_id not in tracker.evaluated_set1_ids and len(ps) >= 1:
                 p1_s1, p2_s1 = int(ps[0][0]), int(ps[0][1])
                 s2_pts = (int(ps[1][0]) + int(ps[1][1])) if len(ps) >= 2 else 0
                 if is_set_completed(p1_s1, p2_s1) and s2_pts <= 4:
                     tracker.evaluated_set1_ids.add(m_id)
+                    bw_mkt = bw_connector.find_match_and_ladder(p1_name, p2_name)
+                    if bw_mkt and (bw_mkt["overs"] or bw_mkt["unders"]):
+                        log_bw_odds_tick(
+                            m_id, bw_mkt["bw_match_id"], f"{p1_name} vs {p2_name}",
+                            "END_SET_1", f"{p1_s1}-{p2_s1}", bw_mkt["overs"], bw_mkt["unders"]
+                        )
+
                     sig = engine.evaluate_live_set1(
-                        p1_id, p2_id, r1, r2, p1_s1, p2_s1, tracker, portfolio.balance
+                        p1_id, p2_id, r1, r2, p1_s1, p2_s1, tracker, portfolio.balance, bw_mkt
                     )
                     print(
                         f"  -> [EVAL SET 1] #{m_id} {p1_name} vs {p2_name} ({p1_s1}-{p2_s1}): "
-                        f"{sig.get('action')} ({sig.get('reason', 'OK')})",
+                        f"{sig.get('action')} ({sig.get('reason', sig.get('odds_source', 'OK'))})",
                         flush=True,
                     )
                     if sig.get("action") == "BET":
                         bet_rec = {
                             "match_id": m_id,
+                            "bw_match_id": sig.get("bw_match_id", 0),
                             "match_start_utc": match_start_utc,
                             "tournament_stage": tour_stage_str,
                             "timestamp_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -796,44 +1120,56 @@ def run_live_sniper_shift(max_minutes: int = 195):
                             "selection": sig["selection"],
                             "target_line": sig["target_line"],
                             "odds": sig["screen_odds"],
+                            "odds_source": sig.get("odds_source", ""),
                             "stake_usd": sig["stake_usd"],
                             "status": "PENDING",
                         }
                         portfolio.active_bets.append(bet_rec)
                         portfolio.save_full_state(tracker)
                         alert_txt = (
-                            f"🚨 ALERTA ORACLE LIVE — {sig['motor']}\n"
-                            f"🆔 Match ID: #{m_id} | ⏰ Inicio: {format_match_times(match_start_utc)}\n"
+                            f"📡 LINEMETRICS LIVE — {sig['motor']}\n"
+                            f"🆔 LP #{m_id} | ⏰ Inicio: {format_match_times(match_start_utc)}\n"
                             f"🏆 TORNEO: {tour_stage_str}\n"
                             f"🏓 PARTIDO: {p1_name} (Local) vs {p2_name} (Visita)\n"
                             f"📊 ESTADO: {sig['state_desc']} | Ratings: {r1:.0f} vs {r2:.0f}\n"
-                            f"🎯 SELECCIÓN EXACTA: {sig['selection']} (Cuota @{sig['screen_odds']:.2f})\n"
-                            f"💰 STAKE KELLY: ${sig['stake_usd']:.2f} USD ({sig['recommended_stake_pct']*100:.2f}% de ${portfolio.balance:.2f})\n"
-                            f"🔬 P_STRUCTURAL: {sig['p_structural']:.4f} | EV: +{sig['expected_value']*100:.2f}%"
+                            f"🎯 PICK ÓPTIMO: {sig['selection']} (Cuota @{sig['screen_odds']:.3f})\n"
+                            f"📈 ESCALERA BW: {sig.get('ladder_str', 'N/A')}\n"
+                            f"🏷️ FUENTE: {sig.get('odds_source', '')}\n"
+                            f"💰 STAKE KELLY: {sig['recommended_stake_pct']*100:.2f}% Banca (${sig['stake_usd']:.2f} de ${portfolio.balance:.2f})\n"
+                            f"🔬 P_MODELO: {sig['p_structural']*100:.1f}% | EV: +{sig['expected_value']*100:.2f}%"
                         )
                         send_live_alert(
-                            f"🎯 PICK LIVE #{m_id}: {p1_name} vs {p2_name} ({sig['selection']})",
+                            f"🎯 LINEMETRICS #{m_id}: {p1_name} vs {p2_name} ({sig['selection']})",
                             alert_txt,
+                            sig.get("bw_match_id", 0),
                         )
 
-            # --- EVALUACIÓN FIN DEL SET 2 (MOTOR 1B F11.1) ---
+            # --- EVALUACIÓN FIN DEL SET 2 (MOTOR 1B F11.2) ---
             if m_id not in tracker.evaluated_set2_ids and len(ps) >= 2:
                 p1_s1, p2_s1 = int(ps[0][0]), int(ps[0][1])
                 p1_s2, p2_s2 = int(ps[1][0]), int(ps[1][1])
                 s3_pts = (int(ps[2][0]) + int(ps[2][1])) if len(ps) >= 3 else 0
                 if is_set_completed(p1_s1, p2_s1) and is_set_completed(p1_s2, p2_s2) and s3_pts <= 4:
                     tracker.evaluated_set2_ids.add(m_id)
+                    bw_mkt = bw_connector.find_match_and_ladder(p1_name, p2_name)
+                    if bw_mkt and (bw_mkt["overs"] or bw_mkt["unders"]):
+                        log_bw_odds_tick(
+                            m_id, bw_mkt["bw_match_id"], f"{p1_name} vs {p2_name}",
+                            "END_SET_2", f"{p1_s1}-{p2_s1}, {p1_s2}-{p2_s2}", bw_mkt["overs"], bw_mkt["unders"]
+                        )
+
                     sig = engine.evaluate_live_set2(
-                        p1_id, p2_id, r1, r2, p1_s1, p2_s1, p1_s2, p2_s2, tracker, portfolio.balance
+                        p1_id, p2_id, r1, r2, p1_s1, p2_s1, p1_s2, p2_s2, tracker, portfolio.balance, bw_mkt
                     )
                     print(
                         f"  -> [EVAL SET 2] #{m_id} {p1_name} vs {p2_name} ({p1_s1}-{p2_s1}, {p1_s2}-{p2_s2}): "
-                        f"{sig.get('action')} ({sig.get('reason', 'OK')})",
+                        f"{sig.get('action')} ({sig.get('reason', sig.get('odds_source', 'OK'))})",
                         flush=True,
                     )
                     if sig.get("action") == "BET":
                         bet_rec = {
                             "match_id": m_id,
+                            "bw_match_id": sig.get("bw_match_id", 0),
                             "match_start_utc": match_start_utc,
                             "tournament_stage": tour_stage_str,
                             "timestamp_utc": now_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -843,24 +1179,28 @@ def run_live_sniper_shift(max_minutes: int = 195):
                             "selection": sig["selection"],
                             "target_line": sig["target_line"],
                             "odds": sig["screen_odds"],
+                            "odds_source": sig.get("odds_source", ""),
                             "stake_usd": sig["stake_usd"],
                             "status": "PENDING",
                         }
                         portfolio.active_bets.append(bet_rec)
                         portfolio.save_full_state(tracker)
                         alert_txt = (
-                            f"🚨 ALERTA ORACLE LIVE — {sig['motor']}\n"
-                            f"🆔 Match ID: #{m_id} | ⏰ Inicio: {format_match_times(match_start_utc)}\n"
+                            f"📡 LINEMETRICS LIVE — {sig['motor']}\n"
+                            f"🆔 LP #{m_id} | ⏰ Inicio: {format_match_times(match_start_utc)}\n"
                             f"🏆 TORNEO: {tour_stage_str}\n"
                             f"🏓 PARTIDO: {p1_name} (Local) vs {p2_name} (Visita)\n"
                             f"📊 ESTADO: {sig['state_desc']} | Ratings: {r1:.0f} vs {r2:.0f}\n"
-                            f"🎯 SELECCIÓN EXACTA: {sig['selection']} (Cuota @{sig['screen_odds']:.2f})\n"
-                            f"💰 STAKE KELLY: ${sig['stake_usd']:.2f} USD ({sig['recommended_stake_pct']*100:.2f}% de ${portfolio.balance:.2f})\n"
-                            f"🔬 P_STRUCTURAL: {sig['p_structural']:.4f} | EV: +{sig['expected_value']*100:.2f}%"
+                            f"🎯 PICK ÓPTIMO: {sig['selection']} (Cuota @{sig['screen_odds']:.3f})\n"
+                            f"📈 ESCALERA BW: {sig.get('ladder_str', 'N/A')}\n"
+                            f"🏷️ FUENTE: {sig.get('odds_source', '')}\n"
+                            f"💰 STAKE KELLY: {sig['recommended_stake_pct']*100:.2f}% Banca (${sig['stake_usd']:.2f} de ${portfolio.balance:.2f})\n"
+                            f"🔬 P_MODELO: {sig['p_structural']*100:.1f}% | EV: +{sig['expected_value']*100:.2f}%"
                         )
                         send_live_alert(
-                            f"🎯 PICK LIVE #{m_id}: {p1_name} vs {p2_name} ({sig['selection']})",
+                            f"🎯 LINEMETRICS #{m_id}: {p1_name} vs {p2_name} ({sig['selection']})",
                             alert_txt,
+                            sig.get("bw_match_id", 0),
                         )
 
         if (time.time() - last_settlement_check) >= 600:
