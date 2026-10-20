@@ -1,16 +1,16 @@
 {
   "brand": "LineMetrics Live",
-  "updated_at_utc": "2026-10-20T12:20:47Z",
-  "current_balance_usd": 108.83,
+  "updated_at_utc": "2026-10-20T19:32:53Z",
+  "current_balance_usd": 105.57,
   "peak_balance_usd": 109.91,
-  "total_settled_picks": 7,
+  "total_settled_picks": 8,
   "active_pending_picks": 0,
   "wins": 6,
-  "losses": 1,
-  "strike_rate_pct": 85.71,
-  "total_volume_usd": 19.18,
-  "net_profit_usd": 8.83,
-  "roi_yield_pct": 46.04,
-  "profit_factor": 3.68,
-  "max_drawdown_pct": 3.0
+  "losses": 2,
+  "strike_rate_pct": 75.0,
+  "total_volume_usd": 22.44,
+  "net_profit_usd": 5.57,
+  "roi_yield_pct": 24.82,
+  "profit_factor": 1.85,
+  "max_drawdown_pct": 3.95
 }
