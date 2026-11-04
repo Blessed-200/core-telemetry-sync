@@ -1,10 +1,10 @@
 {
   "brand": "LineMetrics Live",
-  "updated_at_utc": "2026-11-04T03:36:25Z",
+  "updated_at_utc": "2026-11-04T15:04:54Z",
   "current_balance_usd": 110.99,
   "peak_balance_usd": 116.74,
   "total_settled_picks": 21,
-  "active_pending_picks": 0,
+  "active_pending_picks": 1,
   "wins": 14,
   "losses": 7,
   "strike_rate_pct": 66.67,
